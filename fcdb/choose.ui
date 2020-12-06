@@ -36,13 +36,13 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCommandLinkButton" name="enterButton_2">
+   <widget class="QCommandLinkButton" name="backButton">
     <property name="geometry">
      <rect>
-      <x>870</x>
-      <y>640</y>
-      <width>131</width>
-      <height>51</height>
+      <x>880</x>
+      <y>630</y>
+      <width>121</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -74,13 +74,13 @@
      </size>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="addButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>260</y>
-      <width>341</width>
-      <height>121</height>
+      <x>105</x>
+      <y>210</y>
+      <width>340</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="palette">
@@ -96,12 +96,23 @@
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
-         </color>
+        <brush brushstyle="LinearGradientPattern">
+         <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="RepeatSpread" coordinatemode="ObjectBoundingMode">
+          <gradientstop position="0.363184000000000">
+           <color alpha="255">
+            <red>222</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </gradientstop>
+          <gradientstop position="1.000000000000000">
+           <color alpha="255">
+            <red>255</red>
+            <green>136</green>
+            <blue>136</blue>
+           </color>
+          </gradientstop>
+         </gradient>
         </brush>
        </colorrole>
        <colorrole role="Text">
@@ -183,12 +194,23 @@
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>232</red>
-          <green>24</green>
-          <blue>24</blue>
-         </color>
+        <brush brushstyle="LinearGradientPattern">
+         <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="RepeatSpread" coordinatemode="ObjectBoundingMode">
+          <gradientstop position="0.363184000000000">
+           <color alpha="255">
+            <red>222</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </gradientstop>
+          <gradientstop position="1.000000000000000">
+           <color alpha="255">
+            <red>255</red>
+            <green>136</green>
+            <blue>136</blue>
+           </color>
+          </gradientstop>
+         </gradient>
         </brush>
        </colorrole>
        <colorrole role="Text">
@@ -270,12 +292,23 @@
         </brush>
        </colorrole>
        <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
-         </color>
+        <brush brushstyle="LinearGradientPattern">
+         <gradient startx="0.000000000000000" starty="0.000000000000000" endx="1.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="RepeatSpread" coordinatemode="ObjectBoundingMode">
+          <gradientstop position="0.363184000000000">
+           <color alpha="255">
+            <red>222</red>
+            <green>0</green>
+            <blue>0</blue>
+           </color>
+          </gradientstop>
+          <gradientstop position="1.000000000000000">
+           <color alpha="255">
+            <red>255</red>
+            <green>136</green>
+            <blue>136</blue>
+           </color>
+          </gradientstop>
+         </gradient>
         </brush>
        </colorrole>
        <colorrole role="Text">
@@ -368,13 +401,13 @@ color: rgb(220, 220, 220)</string>
      <string>ДОБАВИТЬ</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="updateButton">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>430</y>
-      <width>341</width>
-      <height>121</height>
+      <x>105</x>
+      <y>360</y>
+      <width>340</width>
+      <height>120</height>
      </rect>
     </property>
     <property name="font">
@@ -419,13 +452,13 @@ color: rgb(220, 220, 220);</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="coachButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>210</y>
-      <width>271</width>
-      <height>61</height>
+      <x>585</x>
+      <y>190</y>
+      <width>270</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="palette">
@@ -746,13 +779,13 @@ color: rgb(220, 220, 220)</string>
      <string>ТРЕНЕРА</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="playerButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>300</y>
-      <width>271</width>
-      <height>61</height>
+      <x>585</x>
+      <y>270</y>
+      <width>270</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="palette">
@@ -1060,7 +1093,7 @@ color: rgb(220, 220, 220)</string>
      </font>
     </property>
     <property name="cursor">
-     <cursorShape>ForbiddenCursor</cursorShape>
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
@@ -1073,13 +1106,13 @@ color: rgb(220, 220, 220)</string>
      <string>ИГРОКА</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="managerButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>390</y>
-      <width>271</width>
-      <height>61</height>
+      <x>585</x>
+      <y>350</y>
+      <width>270</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="font">
@@ -1099,13 +1132,13 @@ color: rgb(220, 220, 220);</string>
      <string>РУКОВОДИТЕЛЯ</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="teamButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>480</y>
-      <width>271</width>
-      <height>61</height>
+      <x>585</x>
+      <y>430</y>
+      <width>270</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="font">
@@ -1125,13 +1158,13 @@ color: rgb(220, 220, 220);</string>
      <string>КОМАНДУ</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="stadiumButton">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>570</y>
-      <width>271</width>
-      <height>61</height>
+      <x>585</x>
+      <y>510</y>
+      <width>270</width>
+      <height>60</height>
      </rect>
     </property>
     <property name="font">
@@ -1149,6 +1182,58 @@ color: rgb(220, 220, 220);</string>
     </property>
     <property name="text">
      <string>СТАДИОН</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="deleteButton">
+    <property name="geometry">
+     <rect>
+      <x>105</x>
+      <y>510</y>
+      <width>340</width>
+      <height>120</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>30</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));
+color: rgb(220, 220, 220);</string>
+    </property>
+    <property name="text">
+     <string>УДАЛИТЬ</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="fanButton">
+    <property name="geometry">
+     <rect>
+      <x>585</x>
+      <y>590</y>
+      <width>270</width>
+      <height>60</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));
+color: rgb(220, 220, 220);</string>
+    </property>
+    <property name="text">
+     <string>БОЛЕЛЬЩИКА</string>
     </property>
    </widget>
   </widget>

@@ -31,18 +31,18 @@
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QCommandLinkButton" name="enterButton_2">
+   <widget class="QCommandLinkButton" name="backButton">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>560</y>
-      <width>221</width>
+      <x>850</x>
+      <y>630</y>
+      <width>131</width>
       <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Verdana</family>
+      <family>Segoe UI</family>
       <pointsize>18</pointsize>
       <weight>75</weight>
       <italic>false</italic>
@@ -72,7 +72,7 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>305</x>
+      <x>320</x>
       <y>220</y>
       <width>381</width>
       <height>431</height>
@@ -81,7 +81,7 @@
     <property name="title">
      <string/>
     </property>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="loginLine">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -100,7 +100,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="passwordLine">
      <property name="geometry">
       <rect>
        <x>50</x>
@@ -183,7 +183,7 @@
      </property>
      <property name="font">
       <font>
-       <family>Verdana</family>
+       <family>Segoe UI</family>
        <pointsize>40</pointsize>
        <weight>75</weight>
        <italic>false</italic>

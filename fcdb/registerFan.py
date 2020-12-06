@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import eye as eye_rc
+import eye
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
