@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.backButton.setFont(font)
         self.backButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.backButton.setStyleSheet(" color: rgb(255, 129, 129)")
+        self.backButton.setStyleSheet("color: rgb(255, 129, 129)")
         icon = QtGui.QIcon.fromTheme("NO")
         self.backButton.setIcon(icon)
         self.backButton.setIconSize(QtCore.QSize(300, 300))
@@ -149,8 +149,8 @@ class Ui_MainWindow(object):
         self.addButton.setFont(font)
         self.addButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.addButton.setAutoFillBackground(False)
-        self.addButton.setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));\n"
-"color: rgb(220, 220, 220)")
+        self.addButton.setStyleSheet("background-color: rgb(255, 129, 129);\n"
+                                            "color: rgb(220, 220, 220)")
         self.addButton.setObjectName("addButton")
         self.updateButton = QtWidgets.QPushButton(self.centralwidget)
         self.updateButton.setGeometry(QtCore.QRect(105, 360, 340, 120))
@@ -159,8 +159,8 @@ class Ui_MainWindow(object):
         font.setPointSize(30)
         self.updateButton.setFont(font)
         self.updateButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.updateButton.setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));\n"
-"color: rgb(220, 220, 220);")
+        self.updateButton.setStyleSheet("background-color: rgb(255, 129, 129);\n"
+                                            "color: rgb(220, 220, 220)")
         self.updateButton.setObjectName("updateButton")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(260, 80, 501, 121))
@@ -432,8 +432,8 @@ class Ui_MainWindow(object):
         font.setPointSize(30)
         self.deleteButton.setFont(font)
         self.deleteButton.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.deleteButton.setStyleSheet("background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));\n"
-"color: rgb(220, 220, 220);")
+        self.deleteButton.setStyleSheet("background-color: rgb(255, 129, 129);\n"
+                                            "color: rgb(220, 220, 220)")
         self.deleteButton.setObjectName("deleteButton")
         self.fanButton = QtWidgets.QPushButton(self.centralwidget)
         self.fanButton.setGeometry(QtCore.QRect(585, 590, 270, 60))
