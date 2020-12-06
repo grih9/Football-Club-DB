@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1016</width>
+    <height>755</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1016</width>
+    <height>755</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1016</width>
+    <height>755</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>15</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralwidget {
+	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QCommandLinkButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>880</x>
+      <y>610</y>
+      <width>121</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Segoe UI</family>
+      <pointsize>18</pointsize>
+      <weight>75</weight>
+      <italic>false</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"> color: rgb(255, 129, 129)</string>
+    </property>
+    <property name="text">
+     <string>НАЗАД</string>
+    </property>
+    <property name="icon">
+     <iconset theme="NO">
+      <normaloff>../../../../AppData/TMP</normaloff>../../../../AppData/TMP</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>300</width>
+      <height>300</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="editbutton">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>600</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));
+color: rgb(220, 220, 220);</string>
+    </property>
+    <property name="text">
+     <string>ИЗМЕНИТЬ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>80</y>
+      <width>541</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>35</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(220, 220, 220);</string>
+    </property>
+    <property name="text">
+     <string>МОЙ ПРОФИЛЬ</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>100</y>
+      <width>101</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../../../../../../git/fcdb/Football-Club-DB/fcdb/home.qrc">:/home/home.png</pixmap>
+    </property>
+    <property name="scaledContents">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="infoBox">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>190</y>
+      <width>941</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Verdana</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(220, 220, 220);</string>
+    </property>
+    <property name="title">
+     <string>Имя Фамилия</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+    </property>
+    <widget class="QLabel" name="birthday">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>110</y>
+       <width>220</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Дата рождения:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="nationality">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>50</y>
+       <width>241</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Национальность:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>110</y>
+       <width>101</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Логин:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>170</y>
+       <width>101</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Пароль:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="loginLabel">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>110</y>
+       <width>281</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>оченьдлинныйлогин</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="passwordLabel">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>170</y>
+       <width>281</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>******</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>540</x>
+       <y>50</y>
+       <width>111</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Статус:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="roleLabel">
+     <property name="geometry">
+      <rect>
+       <x>650</x>
+       <y>50</y>
+       <width>281</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Тренерский штаб</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="showPassword">
+     <property name="geometry">
+      <rect>
+       <x>480</x>
+       <y>180</y>
+       <width>51</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>20</pointsize>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: qlineargradient(spread:repeat, x1:0, y1:0, x2:1, y2:1, stop:0.363184 rgba(222, 0, 0, 255), stop:1 rgba(255, 136, 136, 255));
+image: url(:/eye/eyepng.png);</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="posOrGender">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>170</y>
+       <width>131</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Позиция:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="birthdayLabel">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>110</y>
+       <width>171</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>22.10.2010</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="position_genderLabel">
+     <property name="geometry">
+      <rect>
+       <x>205</x>
+       <y>170</y>
+       <width>21</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>М</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="nationalityLabel">
+     <property name="geometry">
+      <rect>
+       <x>250</x>
+       <y>50</y>
+       <width>281</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>Босния и Герцеговина</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="work">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>230</y>
+       <width>161</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Должность:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="workLabel">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>230</y>
+       <width>721</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Должность</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="height">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>230</y>
+       <width>71</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Рост:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="heightLabel">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>230</y>
+       <width>61</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="weight">
+     <property name="geometry">
+      <rect>
+       <x>120</x>
+       <y>290</y>
+       <width>61</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Вес:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="weightLabel">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>290</y>
+       <width>71</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>90.52</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="number">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>170</y>
+       <width>91</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Номер:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="numberLabel">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>170</y>
+       <width>31</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>99</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1016</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources>
+  <include location="../../../../../../git/fcdb/Football-Club-DB/fcdb/home.qrc"/>
+  <include location="eye.qrc"/>
+  <include location="home.qrc"/>
+ </resources>
+ <connections/>
+</ui>

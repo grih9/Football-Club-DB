@@ -1,10 +1,13 @@
-from PyQt5 import QtWidgets
+from PyQt5 import QtWidgets, QtCore, QtGui
 from startMenu import Ui_MainWindow as startmain
 from login import Ui_MainWindow as loginmain
 from registerFan import Ui_MainWindow as regFanmain
+from menuFan import Ui_MainWindow as menuFanMain
 from managerMenu import Ui_MainWindow as managerMenuMain
 from choose import Ui_MainWindow as managerChooseMain
+from profile import Ui_MainWindow as profileMain
 from cryptography.fernet import Fernet
+
 import sys
 import pyodbc
 
@@ -38,6 +41,150 @@ class mainwindow(QtWidgets.QMainWindow):
 
 
 
+class profilewindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = profileMain()
+        self.ui.setupUi(self)
+        self.setWindowTitle("Профиль")
+        self.ui.backButton.clicked.connect(self.backButton_clicked)
+        self.ui.showPassword.pressed.connect(self.showPassword_pressed)
+        self.ui.showPassword.released.connect(self.showPassword_released)
+        self.db = Sql("football_club")
+        self.db.cursor.execute("SELECT Логин FROM Пользователи where ID_пользователя =" + str(current_userID))
+        row = self.db.cursor.fetchone()
+        login = row[0]
+        if (current_role == 1):
+            self.ui.roleLabel.setText("Руководство")
+            self.db.cursor.execute("SELECT ФИО, Дата_рождения, Национальность FROM Руководство where ID_пользователя =" + str(current_userID))
+            row = self.db.cursor.fetchone()
+            if (row is not None):
+                fio = row[0]
+                birthday = row[1]
+                nationality = row[2]
+            self.ui.loginLabel.setText(login)
+            if (row is None) or (birthday is None):
+                self.ui.birthdayLabel.setText("---")
+            else:
+                self.ui.birthdayLabel.setText(birthday)
+
+            if (row is None) or (fio is None):
+                self.ui.infoBox.setTitle("")
+            else:
+                self.ui.infoBox.setTitle(fio)
+
+            if (row is None) or (nationality is None):
+                self.ui.nationalityLabel.setText("---")
+            else:
+                self.ui.nationalityLabel.setText(nationality)
+            self.ui.passwordLabel.setText("******")
+            self.ui.posOrGender.hide()
+            self.ui.position_genderLabel.hide()
+            self.ui.height.hide()
+            self.ui.heightLabel.hide()
+            self.ui.weightLabel.hide()
+            self.ui.weight.hide()
+            self.ui.number.hide()
+            self.ui.numberLabel.hide()
+            self.ui.work.hide()
+            self.ui.workLabel.hide()
+        elif (current_role == 2):
+            self.ui.roleLabel.setText("Тренерский штаб")
+            self.db.cursor.execute(
+                "SELECT ФИО, Дата_рождения, Должность, Национальность FROM Тренеры_и_персонал where ID_пользователя =" + str(current_userID))
+            row = self.db.cursor.fetchone()
+            fio = row[0]
+            birthday = row[1]
+            work = row[2]
+            nationality = row[3]
+            self.ui.loginLabel.setText(login)
+            self.ui.birthdayLabel.setText(birthday)
+            self.ui.infoBox.setTitle(fio)
+            self.ui.passwordLabel.setText("******")
+            self.ui.height.hide()
+            self.ui.heightLabel.hide()
+            self.ui.nationalityLabel.setText(nationality)
+            self.ui.weightLabel.hide()
+            self.ui.weight.hide()
+            self.ui.posOrGender.hide()
+            self.ui.position_genderLabel.hide()
+            self.ui.number.hide()
+            self.ui.numberLabel.hide()
+            self.ui.workLabel.setText(work)
+        elif (current_role == 3):
+            self.ui.roleLabel.setText("Футболист")
+            self.db.cursor.execute(
+                "SELECT ФИО, Номер_футболиста, Дата_рождения, Позиция, Национальность, Рост, Вес"
+                " FROM Футболисты where ID_пользователя =" + str(current_userID))
+            row = self.db.cursor.fetchone()
+            fio = row[0]
+            number = row[1]
+            birthday = row[2]
+            position = row[3]
+            nationality = row[4]
+            height = row[5]
+            weight = row[6]
+            self.ui.loginLabel.setText(login)
+            self.ui.birthdayLabel.setText(birthday)
+            self.ui.infoBox.setTitle(fio)
+            self.ui.posOrGender.setText("Позиция:")
+            self.ui.position_genderLabel.setText(position)
+            self.ui.passwordLabel.setText("******")
+            self.ui.heightLabel.setText(height)
+            self.ui.nationalityLabel.setText(nationality)
+            self.ui.weightLabel.setText(weight)
+            self.ui.numberLabel.setText(number)
+            self.ui.work.hide()
+            self.ui.workLabel.hide()
+        elif (current_role == 4):
+            self.ui.roleLabel.setText("Болельщик")
+            self.db.cursor.execute("SELECT ФИО, Пол, Дата_рождения FROM Болельщики where ID_пользователя =" + str(current_userID))
+            row = self.db.cursor.fetchone()
+            fio = row[0]
+            gender = row[1]
+            birthday = row[2]
+            self.ui.loginLabel.setText(login)
+            self.ui.birthdayLabel.setText(birthday)
+            self.ui.infoBox.setTitle(fio)
+            self.ui.posOrGender.setText("Пол:")
+            self.ui.posOrGender.setGeometry(QtCore.QRect(130, 170, 80, 50))
+            self.ui.position_genderLabel.setText("М")
+            self.ui.passwordLabel.setText("******")
+            self.ui.height.hide()
+            self.ui.heightLabel.hide()
+            self.ui.nationality.hide()
+            self.ui.nationalityLabel.hide()
+            self.ui.weightLabel.hide()
+            self.ui.weight.hide()
+            self.ui.work.hide()
+            self.ui.workLabel.hide()
+            self.ui.number.hide()
+            self.ui.numberLabel.hide()
+        self.db.cnxn.close()
+
+    def backButton_clicked(self):
+        if current_role == 1:
+            self.menu = managerMenuWindow()
+        elif current_role == 4:
+            self.menu = menuFanWindow()
+        self.menu.show()
+        self.close()
+
+    def showPassword_pressed(self):
+        self.db = Sql("football_club")
+        self.db.cursor.execute("SELECT Пароль FROM Пользователи where ID_пользователя =" + str(current_userID))
+        row = self.db.cursor.fetchone()
+        p = row[0]
+        cipher_key = b'aIgO-OFHtCwB6LgfBcl1IQPYTVjQHzNsyzHK_PICN3s='
+        self.cipher = Fernet(cipher_key)
+        p = self.cipher.decrypt(str.encode(p)).decode('utf8')
+        self.ui.passwordLabel.setText(p)
+        self.db.cnxn.close()
+
+    def showPassword_released(self):
+        self.ui.passwordLabel.setText("******")
+
+
 class regFanWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -45,7 +192,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Регистрация болельщика")
         self.ui.backButton.clicked.connect(self.backButton_clicked)
-        self.ui.passwodCheckbox.stateChanged.connect(self.checkboxHandler)
+        self.ui.passwodCheckbox. stateChanged.connect(self.checkboxHandler)
         self.ui.createAccountButton.clicked.connect(self.createButton_clicked)
 
     def backButton_clicked(self):
@@ -79,6 +226,7 @@ class regFanWindow(QtWidgets.QMainWindow):
                 or ((m is False) and (f is False)):
             message = "Необходимо заполнить каждое поле"
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Пустое поле")
             error_message.showMessage(message)
             if len(l) != 0 and (l.strip() == ''):
@@ -93,6 +241,7 @@ class regFanWindow(QtWidgets.QMainWindow):
             message = "Недопустимый символ в поле логина - пробел. Проверьте правильность введенных данных."
             error_message = QtWidgets.QErrorMessage(self)
             error_message.setWindowTitle("Ошибка ввода")
+            error_message.setModal(True)
             error_message.showMessage(message)
             self.ui.loginLine.clear()
             self.ui.passwordLine.clear()
@@ -100,6 +249,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         elif " " in p:
             message = "Недопустимый символ в поле пароля - пробел. Проверьте правильность введенных данных."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка ввода")
             error_message.showMessage(message)
             self.ui.passwordLine.clear()
@@ -107,6 +257,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         elif any(map(str.isdigit, n)):
             message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка ввода")
             error_message.showMessage(message)
             self.ui.nameLine.clear()
@@ -115,6 +266,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         elif any(map(str.isdigit, s)):
             message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка ввода")
             error_message.showMessage(message)
             self.ui.surnameLine.clear()
@@ -123,6 +275,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         elif (p != pp):
             message = "Введенные пароли не совпадают. Проверьте правильность введенных данных."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка ввода")
             error_message.showMessage(message)
             self.ui.passwordLine.clear()
@@ -134,6 +287,7 @@ class regFanWindow(QtWidgets.QMainWindow):
             if (status is False):
                 message = "Введенный логин занят. Повторите ввод."
                 error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
                 error_message.setWindowTitle("Ошибка ввода")
                 error_message.showMessage(message)
                 self.ui.loginLine.clear()
@@ -162,6 +316,7 @@ class regFanWindow(QtWidgets.QMainWindow):
                 else:
                     message = "Неопределенная ошибка. Повторите ввод."
                     error_message = QtWidgets.QErrorMessage(self)
+                    error_message.setModal(True)
                     error_message.setWindowTitle("Ошибка БД")
                     error_message.showMessage(message)
                     self.db.cursor.execute("DELETE FROM Пользователи where Логин='" + l + "'")
@@ -185,13 +340,16 @@ class loginindow(QtWidgets.QMainWindow):
         if (l.strip() == ''):
             message = "Поле логина пустое! Введите логин!"
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка входа")
             error_message.showMessage(message)
             if len(l) != 0:
                 self.ui.loginLine.clear()
+            self.ui.passwordLine.clear()
         elif (p.strip() == ''):
             message = "Поле пароля пустое! Введите пароль!"
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка входа")
             error_message.showMessage(message)
             if len(p) != 0:
@@ -199,12 +357,15 @@ class loginindow(QtWidgets.QMainWindow):
         elif (l.find(' ') != -1):
             message = "Недопустимый символ в поле логина. Проверьте правильность данных и повторите вход."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка входа")
             error_message.showMessage(message)
             self.ui.loginLine.clear()
+            self.ui.passwordLine.clear()
         elif (p.find(' ') != -1):
             message = "Данного пользователя не существует или введен неверный пароль! Проверьте правильность данных и повторите вход."
             error_message = QtWidgets.QErrorMessage(self)
+            error_message.setModal(True)
             error_message.setWindowTitle("Ошибка входа")
             error_message.showMessage(message)
             self.ui.passwordLine.clear()
@@ -215,6 +376,7 @@ class loginindow(QtWidgets.QMainWindow):
             if (status == False):
                 message = "Данного пользователя не существует или введен неверный пароль! Проверьте правильность данных и повторите вход."
                 error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
                 error_message.setWindowTitle("Ошибка входа")
                 error_message.showMessage(message)
                 self.ui.passwordLine.clear()
@@ -225,8 +387,10 @@ class loginindow(QtWidgets.QMainWindow):
                 current_userID = id
                 if current_role == 1:
                     self.menu = managerMenuWindow()
-                    self.menu.show()
-                    self.close()
+                elif current_role == 4:
+                    self.menu = menuFanWindow()
+                self.menu.show()
+                self.close()
 
     def backButton_clicked(self):
         self.main = mainwindow()
@@ -242,9 +406,10 @@ class managerMenuWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Руководство")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         self.ui.managingButton.clicked.connect(self.managingButton_clicked)
+        self.ui.profileButton.clicked.connect(self.profileButton_clicked)
 
     def exitButton_clicked(self):
-        message = 'Вы уверены что хотите выйти?'
+        message = 'Вы уверены, что хотите выйти?'
         reply = QtWidgets.QMessageBox.question(self, 'Выход из базы данных', message,
                                                QtWidgets.QMessageBox.Yes,
                                                QtWidgets.QMessageBox.No)
@@ -261,6 +426,40 @@ class managerMenuWindow(QtWidgets.QMainWindow):
         self.managingWindow = managerManagingWindow()
         self.managingWindow.show()
         self.close()
+    def profileButton_clicked(self):
+        self.profile = profilewindow()
+        self.profile.show()
+        self.close()
+
+class menuFanWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.ui = menuFanMain()
+        self.ui.setupUi(self)
+        self.ui.exitButton.clicked.connect(self.exitButton_clicked)
+        #self.ui.teamButton.clicked.connect(self.teamButton_clicked)
+        #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
+        #self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
+        #self.ui.calendarButton.clicked.connect(self.calendarButton_clicked)
+        self.ui.profileButton.clicked.connect(self.profileButton_clicked)
+    def profileButton_clicked(self):
+        self.profile = profilewindow()
+        self.profile.show()
+        self.close()
+
+    def exitButton_clicked(self):
+        message = 'Вы уверены, что хотите выйти?'
+        reply = QtWidgets.QMessageBox.question(self, 'Выход из базы данных', message,
+                                               QtWidgets.QMessageBox.Yes,
+                                               QtWidgets.QMessageBox.No)
+        if reply == QtWidgets.QMessageBox.Yes:
+            global current_role
+            global current_userID
+            current_role = 0
+            current_userID = 0
+            self.main = mainwindow()
+            self.main.show()
+            self.close()
 
 class managerManagingWindow(QtWidgets.QMainWindow):
     def __init__(self):
