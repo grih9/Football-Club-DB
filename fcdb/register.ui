@@ -229,7 +229,7 @@
       <rect>
        <x>20</x>
        <y>400</y>
-       <width>275</width>
+       <width>270</width>
        <height>50</height>
       </rect>
      </property>
@@ -249,9 +249,9 @@
     <widget class="QLineEdit" name="passwordConfirmLine">
      <property name="geometry">
       <rect>
-       <x>330</x>
+       <x>335</x>
        <y>400</y>
-       <width>275</width>
+       <width>270</width>
        <height>50</height>
       </rect>
      </property>
