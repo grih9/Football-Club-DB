@@ -96,7 +96,7 @@ class Ui_MainWindow(object):
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.passwordLine = QtWidgets.QLineEdit(self.groupBox)
-        self.passwordLine.setGeometry(QtCore.QRect(20, 400, 275, 50))
+        self.passwordLine.setGeometry(QtCore.QRect(20, 400, 270, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -105,7 +105,7 @@ class Ui_MainWindow(object):
         self.passwordLine.setAlignment(QtCore.Qt.AlignCenter)
         self.passwordLine.setObjectName("passwordLine")
         self.passwordConfirmLine = QtWidgets.QLineEdit(self.groupBox)
-        self.passwordConfirmLine.setGeometry(QtCore.QRect(330, 400, 275, 50))
+        self.passwordConfirmLine.setGeometry(QtCore.QRect(335, 400, 270, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -242,4 +242,3 @@ class Ui_MainWindow(object):
         self.femaleRadio.setText(_translate("MainWindow", "Ж"))
         self.label_6.setText(_translate("MainWindow", "ФАМИЛИЯ"))
         self.backButton.setText(_translate("MainWindow", "НАЗАД"))
-
