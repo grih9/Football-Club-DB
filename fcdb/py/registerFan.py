@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'register.ui'
+# Form implementation generated from reading ui file 'ui/register.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -18,14 +18,14 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1016, 755))
         MainWindow.setMaximumSize(QtCore.QSize(1016, 755))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView.setGeometry(QtCore.QRect(700, 360, 231, 181))
         self.graphicsView.setMaximumSize(QtCore.QSize(499, 500))
-        self.graphicsView.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/fans.jpg);")
+        self.graphicsView.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans.jpg);")
         self.graphicsView.setObjectName("graphicsView")
         self.groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.groupBox.setGeometry(QtCore.QRect(20, 150, 631, 551))
@@ -40,7 +40,7 @@ class Ui_MainWindow(object):
         self.createAccountButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.createAccountButton.setGeometry(QtCore.QRect(120, 470, 381, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(23)
         font.setBold(True)
         font.setItalic(False)
@@ -188,18 +188,18 @@ class Ui_MainWindow(object):
         self.graphicsView_3 = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView_3.setGeometry(QtCore.QRect(850, 570, 131, 101))
         self.graphicsView_3.setMaximumSize(QtCore.QSize(499, 500))
-        self.graphicsView_3.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/fans2.jpeg);")
+        self.graphicsView_3.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans2.jpeg);")
         self.graphicsView_3.setObjectName("graphicsView_3")
         self.graphicsView_2 = QtWidgets.QGraphicsView(self.centralwidget)
         self.graphicsView_2.setGeometry(QtCore.QRect(640, 80, 411, 251))
         self.graphicsView_2.setMaximumSize(QtCore.QSize(499, 500))
-        self.graphicsView_2.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/fans3.jpg);\n"
+        self.graphicsView_2.setStyleSheet("background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans3.jpg);\n"
 "border-color: rgb(255, 0, 0);")
         self.graphicsView_2.setObjectName("graphicsView_2")
         self.backButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.backButton.setGeometry(QtCore.QRect(690, 590, 121, 61))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(15)
         font.setBold(True)
         font.setItalic(False)
@@ -221,9 +221,9 @@ class Ui_MainWindow(object):
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1016, 26))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        self.statusBar = QtWidgets.QStatusBar(MainWindow)
+        self.statusBar.setObjectName("statusBar")
+        MainWindow.setStatusBar(self.statusBar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -242,3 +242,4 @@ class Ui_MainWindow(object):
         self.femaleRadio.setText(_translate("MainWindow", "Ж"))
         self.label_6.setText(_translate("MainWindow", "ФАМИЛИЯ"))
         self.backButton.setText(_translate("MainWindow", "НАЗАД"))
+

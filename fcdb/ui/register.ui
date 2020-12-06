@@ -27,16 +27,35 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);
+	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>360</y>
+      <width>231</width>
+      <height>181</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>499</width>
+      <height>500</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans.jpg);</string>
+    </property>
+   </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>20</x>
       <y>150</y>
-      <width>861</width>
+      <width>631</width>
       <height>551</height>
      </rect>
     </property>
@@ -52,15 +71,15 @@
 }</string>
     </property>
     <property name="title">
-     <string>НОВЫЙ ИГРОК</string>
+     <string>НОВЫЙ БОЛЕЛЬЩИК</string>
     </property>
-    <widget class="QCommandLinkButton" name="enterButton">
+    <widget class="QCommandLinkButton" name="createAccountButton">
      <property name="geometry">
       <rect>
-       <x>250</x>
-       <y>480</y>
-       <width>451</width>
-       <height>61</height>
+       <x>120</x>
+       <y>470</y>
+       <width>381</width>
+       <height>91</height>
       </rect>
      </property>
      <property name="font">
@@ -92,11 +111,11 @@
       </size>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="nameLine">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>100</y>
+       <y>110</y>
        <width>275</width>
        <height>50</height>
       </rect>
@@ -115,7 +134,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>50</y>
+       <y>60</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -139,8 +158,8 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>40</x>
-       <y>370</y>
+       <x>50</x>
+       <y>230</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -161,12 +180,12 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="loginLine">
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>420</y>
-       <width>255</width>
+       <y>280</y>
+       <width>275</width>
        <height>50</height>
       </rect>
      </property>
@@ -183,8 +202,8 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>370</y>
+       <x>50</x>
+       <y>350</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -205,12 +224,12 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="passwordLine">
      <property name="geometry">
       <rect>
-       <x>300</x>
-       <y>420</y>
-       <width>250</width>
+       <x>20</x>
+       <y>400</y>
+       <width>270</width>
        <height>50</height>
       </rect>
      </property>
@@ -227,12 +246,12 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="passwordConfirmLine">
      <property name="geometry">
       <rect>
-       <x>595</x>
-       <y>420</y>
-       <width>250</width>
+       <x>335</x>
+       <y>400</y>
+       <width>270</width>
        <height>50</height>
       </rect>
      </property>
@@ -252,11 +271,11 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="birthdayLine">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>250</y>
+       <x>330</x>
+       <y>280</y>
        <width>275</width>
        <height>51</height>
       </rect>
@@ -275,7 +294,7 @@
        <hour>23</hour>
        <minute>59</minute>
        <second>59</second>
-       <year>2006</year>
+       <year>2020</year>
        <month>12</month>
        <day>11</day>
       </datetime>
@@ -285,31 +304,17 @@
        <hour>0</hour>
        <minute>0</minute>
        <second>0</second>
-       <year>1970</year>
+       <year>1900</year>
        <month>1</month>
        <day>1</day>
       </datetime>
-     </property>
-     <property name="maximumDate">
-      <date>
-       <year>2006</year>
-       <month>12</month>
-       <day>11</day>
-      </date>
-     </property>
-     <property name="minimumDate">
-      <date>
-       <year>1970</year>
-       <month>1</month>
-       <day>1</day>
-      </date>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>11</x>
-       <y>200</y>
+       <x>320</x>
+       <y>230</y>
        <width>291</width>
        <height>31</height>
       </rect>
@@ -333,8 +338,8 @@
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>580</x>
-       <y>370</y>
+       <x>320</x>
+       <y>350</y>
        <width>291</width>
        <height>31</height>
       </rect>
@@ -355,11 +360,55 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QRadioButton" name="maleRadio">
      <property name="geometry">
       <rect>
-       <x>320</x>
-       <y>100</y>
+       <x>250</x>
+       <y>180</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(220, 220, 220)</string>
+     </property>
+     <property name="text">
+      <string>М</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="femaleRadio">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>180</y>
+       <width>61</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>18</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(220, 220, 220)</string>
+     </property>
+     <property name="text">
+      <string>Ж</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="surnameLine">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>110</y>
        <width>275</width>
        <height>50</height>
       </rect>
@@ -378,7 +427,7 @@
      <property name="geometry">
       <rect>
        <x>360</x>
-       <y>50</y>
+       <y>60</y>
        <width>201</width>
        <height>31</height>
       </rect>
@@ -399,239 +448,24 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QCheckBox" name="passwodCheckbox">
      <property name="geometry">
       <rect>
-       <x>640</x>
-       <y>100</y>
-       <width>201</width>
+       <x>305</x>
+       <y>400</y>
+       <width>21</width>
        <height>51</height>
       </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="cursor">
-      <cursorShape>ArrowCursor</cursorShape>
-     </property>
-     <property name="placeholderText">
-      <string>Позиция</string>
-     </property>
-     <item>
-      <property name="text">
-       <string/>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Вратарь</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Защитник</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Полузащитник</string>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>Нападающий</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_7">
-     <property name="geometry">
-      <rect>
-       <x>640</x>
-       <y>50</y>
-       <width>201</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>18</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>ПОЗИЦИЯ</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="spinBox">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>200</y>
-       <width>161</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="minimum">
-      <number>150</number>
-     </property>
-     <property name="maximum">
-      <number>220</number>
-     </property>
-     <property name="value">
-      <number>180</number>
-     </property>
-    </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox">
-     <property name="geometry">
-      <rect>
-       <x>660</x>
-       <y>300</y>
-       <width>161</width>
-       <height>51</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="minimum">
-      <double>50.000000000000000</double>
-     </property>
-     <property name="maximum">
-      <double>120.000000000000000</double>
-     </property>
-     <property name="singleStep">
-      <double>0.100000000000000</double>
-     </property>
-     <property name="value">
-      <double>80.000000000000000</double>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_8">
-     <property name="geometry">
-      <rect>
-       <x>641</x>
-       <y>160</y>
-       <width>171</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>РОСТ</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_9">
-     <property name="geometry">
-      <rect>
-       <x>629</x>
-       <y>260</y>
-       <width>201</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>15</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>ВЕС</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
-     <property name="geometry">
-      <rect>
-       <x>320</x>
-       <y>300</y>
-       <width>275</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>12</pointsize>
-      </font>
      </property>
      <property name="text">
       <string/>
      </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
     </widget>
-    <widget class="QLabel" name="label_10">
+    <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>360</x>
-       <y>255</y>
-       <width>201</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>18</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>СТРАНА</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_11">
-     <property name="geometry">
-      <rect>
-       <x>558</x>
-       <y>390</y>
+       <x>298</x>
+       <y>380</y>
        <width>31</width>
        <height>31</height>
       </rect>
@@ -640,84 +474,59 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="eye.qrc">:/eye/eyepng.png</pixmap>
+      <pixmap resource="../resources/eye.qrc">:/eye/eyepng.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox">
-     <property name="geometry">
-      <rect>
-       <x>565</x>
-       <y>420</y>
-       <width>21</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QComboBox" name="comboBox_2">
-     <property name="geometry">
-      <rect>
-       <x>410</x>
-       <y>200</y>
-       <width>100</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>14</pointsize>
-      </font>
-     </property>
-     <item>
-      <property name="text">
-       <string/>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>99</string>
-      </property>
-     </item>
-    </widget>
-    <widget class="QLabel" name="label_12">
-     <property name="geometry">
-      <rect>
-       <x>370</x>
-       <y>160</y>
-       <width>170</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Verdana</family>
-       <pointsize>17</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(220, 220, 220);</string>
-     </property>
-     <property name="text">
-      <string>НОМЕР</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
    </widget>
-   <widget class="QCommandLinkButton" name="enterButton_2">
+   <widget class="QGraphicsView" name="graphicsView_3">
     <property name="geometry">
      <rect>
-      <x>900</x>
-      <y>580</y>
-      <width>111</width>
-      <height>51</height>
+      <x>850</x>
+      <y>570</y>
+      <width>131</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>499</width>
+      <height>500</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans2.jpeg);</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView_2">
+    <property name="geometry">
+     <rect>
+      <x>640</x>
+      <y>80</y>
+      <width>411</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>499</width>
+      <height>500</height>
+     </size>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/fans3.jpg);
+border-color: rgb(255, 0, 0);</string>
+    </property>
+   </widget>
+   <widget class="QCommandLinkButton" name="backButton">
+    <property name="geometry">
+     <rect>
+      <x>690</x>
+      <y>590</y>
+      <width>121</width>
+      <height>61</height>
      </rect>
     </property>
     <property name="font">
@@ -749,6 +558,11 @@
      </size>
     </property>
    </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>graphicsView_3</zorder>
+   <zorder>graphicsView_2</zorder>
+   <zorder>groupBox</zorder>
+   <zorder>backButton</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -760,11 +574,11 @@
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <resources>
-  <include location="players.qrc"/>
-  <include location="eye.qrc"/>
+  <include location="../resources/eye.qrc"/>
+  <include location="../resources/eye.qrc"/>
  </resources>
  <connections/>
 </ui>

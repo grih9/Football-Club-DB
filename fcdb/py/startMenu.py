@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'startMenu3.ui'
+# Form implementation generated from reading ui file 'ui/startMenu3.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -18,14 +18,14 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1016, 755))
         MainWindow.setMaximumSize(QtCore.QSize(1016, 755))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back22.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back22.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.enterButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.enterButton.setGeometry(QtCore.QRect(375, 535, 281, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(40)
         font.setBold(True)
         font.setItalic(False)

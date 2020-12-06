@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back22.jpg);
+	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back22.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -149,7 +149,7 @@ border-color: rgb(0, 0, 0);</string>
     </property>
     <property name="font">
      <font>
-      <family>Verdana</family>
+      <family>Segoe UI</family>
       <pointsize>13</pointsize>
       <weight>75</weight>
       <italic>true</italic>
@@ -167,7 +167,8 @@ border-color: rgb(0, 0, 0);</string>
      <string>У меня нет аккаунта</string>
     </property>
     <property name="icon">
-     <iconset theme="NO"/>
+     <iconset theme="NO">
+      <normaloff>.</normaloff>.</iconset>
     </property>
    </widget>
   </widget>

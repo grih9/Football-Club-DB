@@ -32,7 +32,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);
+	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -138,7 +138,7 @@ color: rgb(220, 220, 220);</string>
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="../../../../../../git/fcdb/Football-Club-DB/fcdb/home.qrc">:/home/home.png</pixmap>
+     <pixmap resource="../resources/home.qrc">:/home/home.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -613,9 +613,10 @@ image: url(:/eye/eyepng.png);</string>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="../../../../../../git/fcdb/Football-Club-DB/fcdb/home.qrc"/>
-  <include location="eye.qrc"/>
-  <include location="home.qrc"/>
+  <include location="../resources/home.qrc"/>
+  <include location="../resources/eye.qrc"/>
+  <include location="../resources/home.qrc"/>
+  <include location="../home.qrc"/>
  </resources>
  <connections/>
 </ui>

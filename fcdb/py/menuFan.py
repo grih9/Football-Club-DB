@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'menuFan.ui'
+# Form implementation generated from reading ui file 'ui/menuFan.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -11,6 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import home
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -18,14 +19,14 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1016, 755))
         MainWindow.setMaximumSize(QtCore.QSize(1016, 755))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.profileButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.profileButton.setGeometry(QtCore.QRect(700, 95, 301, 71))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(20)
         font.setBold(True)
         font.setItalic(False)
@@ -51,7 +52,7 @@ class Ui_MainWindow(object):
         self.teamButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.teamButton.setGeometry(QtCore.QRect(260, 40, 291, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(30)
         font.setBold(True)
         font.setItalic(False)
@@ -66,7 +67,7 @@ class Ui_MainWindow(object):
         self.ticketsButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.ticketsButton.setGeometry(QtCore.QRect(220, 150, 371, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(30)
         font.setBold(True)
         font.setItalic(False)
@@ -81,7 +82,7 @@ class Ui_MainWindow(object):
         self.calendarButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.calendarButton.setGeometry(QtCore.QRect(30, 260, 751, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(30)
         font.setBold(True)
         font.setItalic(False)
@@ -96,7 +97,7 @@ class Ui_MainWindow(object):
         self.knowledgesButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.knowledgesButton.setGeometry(QtCore.QRect(230, 370, 381, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(30)
         font.setBold(True)
         font.setItalic(False)
@@ -117,7 +118,7 @@ class Ui_MainWindow(object):
         self.exitButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.exitButton.setGeometry(QtCore.QRect(890, 650, 101, 48))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(13)
         font.setBold(True)
         font.setItalic(True)
@@ -151,3 +152,4 @@ class Ui_MainWindow(object):
         self.calendarButton.setText(_translate("MainWindow", "РАСПИСАНИЕ И РЕЗУЛЬТАТЫ"))
         self.knowledgesButton.setText(_translate("MainWindow", "БАЗА ЗНАНИЙ"))
         self.exitButton.setText(_translate("MainWindow", "ВЫХОД"))
+

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'profile.ui'
+# Form implementation generated from reading ui file 'ui/profile.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -12,6 +12,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import eye
 import home
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -22,14 +23,14 @@ class Ui_MainWindow(object):
         font.setPointSize(15)
         MainWindow.setFont(font)
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.backButton.setGeometry(QtCore.QRect(880, 610, 121, 61))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(18)
         font.setBold(True)
         font.setItalic(False)
@@ -289,4 +290,3 @@ class Ui_MainWindow(object):
         self.weightLabel.setText(_translate("MainWindow", "90.52"))
         self.number.setText(_translate("MainWindow", "Номер:"))
         self.numberLabel.setText(_translate("MainWindow", "99"))
-

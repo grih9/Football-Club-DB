@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'login.ui'
+# Form implementation generated from reading ui file 'ui/login.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -18,14 +18,14 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1016, 755))
         MainWindow.setMaximumSize(QtCore.QSize(1016, 755))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.backButton = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.backButton.setGeometry(QtCore.QRect(850, 630, 131, 51))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(18)
         font.setBold(True)
         font.setItalic(False)
@@ -79,7 +79,7 @@ class Ui_MainWindow(object):
         self.enterButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.enterButton.setGeometry(QtCore.QRect(55, 310, 291, 91))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(40)
         font.setBold(True)
         font.setItalic(False)

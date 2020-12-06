@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'new.ui'
+# Form implementation generated from reading ui file 'ui/new.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.2
 #
@@ -18,7 +18,7 @@ class Ui_MainWindow(object):
         MainWindow.setMinimumSize(QtCore.QSize(1016, 755))
         MainWindow.setMaximumSize(QtCore.QSize(1016, 755))
         MainWindow.setStyleSheet("QWidget#centralwidget {\n"
-"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);\n"
+"    background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);\n"
 "}")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
@@ -35,7 +35,7 @@ class Ui_MainWindow(object):
         self.enterButton = QtWidgets.QCommandLinkButton(self.groupBox)
         self.enterButton.setGeometry(QtCore.QRect(250, 480, 451, 61))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(23)
         font.setBold(True)
         font.setItalic(False)
@@ -91,7 +91,7 @@ class Ui_MainWindow(object):
         self.label_3.setAlignment(QtCore.Qt.AlignCenter)
         self.label_3.setObjectName("label_3")
         self.lineEdit_3 = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_3.setGeometry(QtCore.QRect(300, 420, 255, 50))
+        self.lineEdit_3.setGeometry(QtCore.QRect(300, 420, 250, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -100,7 +100,7 @@ class Ui_MainWindow(object):
         self.lineEdit_3.setAlignment(QtCore.Qt.AlignCenter)
         self.lineEdit_3.setObjectName("lineEdit_3")
         self.lineEdit_4 = QtWidgets.QLineEdit(self.groupBox)
-        self.lineEdit_4.setGeometry(QtCore.QRect(590, 420, 255, 50))
+        self.lineEdit_4.setGeometry(QtCore.QRect(595, 420, 250, 50))
         font = QtGui.QFont()
         font.setFamily("Verdana")
         font.setPointSize(12)
@@ -245,7 +245,7 @@ class Ui_MainWindow(object):
         self.label_11.setScaledContents(True)
         self.label_11.setObjectName("label_11")
         self.checkBox = QtWidgets.QCheckBox(self.groupBox)
-        self.checkBox.setGeometry(QtCore.QRect(565, 420, 41, 41))
+        self.checkBox.setGeometry(QtCore.QRect(565, 420, 21, 40))
         self.checkBox.setText("")
         self.checkBox.setObjectName("checkBox")
         self.comboBox_2 = QtWidgets.QComboBox(self.groupBox)
@@ -270,7 +270,7 @@ class Ui_MainWindow(object):
         self.enterButton_2 = QtWidgets.QCommandLinkButton(self.centralwidget)
         self.enterButton_2.setGeometry(QtCore.QRect(900, 580, 111, 51))
         font = QtGui.QFont()
-        font.setFamily("Segoe UI")
+        font.setFamily("Verdana")
         font.setPointSize(15)
         font.setBold(True)
         font.setItalic(False)

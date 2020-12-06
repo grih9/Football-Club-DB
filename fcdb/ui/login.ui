@@ -27,7 +27,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#centralwidget {
-	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/back.jpg);
+	background-image: url(C:/git/fcdb/Football-Club-DB/fcdb/resources/back.jpg);
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
