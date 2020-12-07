@@ -162,7 +162,9 @@ color: rgb(220, 220, 220);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: rgb(220, 220, 220);</string>
+     <string notr="true">color: rgb(220, 220, 220);
+
+</string>
     </property>
     <property name="title">
      <string>Имя Фамилия</string>
@@ -598,6 +600,86 @@ image: url(:/eye/eyepng.png);</string>
       <string>99</string>
      </property>
     </widget>
+    <widget class="QLabel" name="expireDate">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>290</y>
+       <width>360</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Дата окончания контракта:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="salary">
+     <property name="geometry">
+      <rect>
+       <x>580</x>
+       <y>230</y>
+       <width>130</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>13</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Зарплата:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="expireDateLabel">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>290</y>
+       <width>161</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>2021-12-12</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="salaryLabel">
+     <property name="geometry">
+      <rect>
+       <x>720</x>
+       <y>230</y>
+       <width>141</width>
+       <height>50</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Verdana</family>
+       <pointsize>14</pointsize>
+      </font>
+     </property>
+     <property name="text">
+      <string>180</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -616,7 +698,7 @@ image: url(:/eye/eyepng.png);</string>
   <include location="../resources/home.qrc"/>
   <include location="../resources/eye.qrc"/>
   <include location="../resources/home.qrc"/>
-  <include location="../home.qrc"/>
+  <include location="../resources/home.qrc"/>
  </resources>
  <connections/>
 </ui>

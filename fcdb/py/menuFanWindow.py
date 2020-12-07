@@ -11,6 +11,7 @@ class menuFanWindow(QtWidgets.QMainWindow):
         super().__init__()
         self.ui = menuFanMain()
         self.ui.setupUi(self)
+        self.setWindowTitle("Болельщик")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         #self.ui.teamButton.clicked.connect(self.teamButton_clicked)
         #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)

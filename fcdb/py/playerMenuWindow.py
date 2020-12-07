@@ -1,20 +1,26 @@
 from PyQt5 import QtWidgets
 
-from managerMenu import Ui_MainWindow as managerMenuMain
 import mainwindow
-import managerManagingWindow
 import profilewindow
 import properties
+from playerMenu import Ui_MainWindow as playerMenuMain
 
-class managerMenuWindow(QtWidgets.QMainWindow):
+class playerMenuWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self.ui = managerMenuMain()
+        self.ui = playerMenuMain()
         self.ui.setupUi(self)
-        self.setWindowTitle("Руководство")
+        self.setWindowTitle("Футболист")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
-        self.ui.managingButton.clicked.connect(self.managingButton_clicked)
+        #self.ui.teamButton.clicked.connect(self.teamButton_clicked)
+        #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
+        #self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
+        #self.ui.calendarButton.clicked.connect(self.calendarButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
+    def profileButton_clicked(self):
+        self.profile = profilewindow.profilewindow()
+        self.profile.show()
+        self.close()
 
     def exitButton_clicked(self):
         message = 'Вы уверены, что хотите выйти?'
@@ -22,18 +28,8 @@ class managerMenuWindow(QtWidgets.QMainWindow):
                                                QtWidgets.QMessageBox.Yes,
                                                QtWidgets.QMessageBox.No)
         if reply == QtWidgets.QMessageBox.Yes:
-            properties.current_role = 0
+            properties.prcurrent_role = 0
             properties.current_userID = 0
             self.main = mainwindow.mainwindow()
             self.main.show()
             self.close()
-
-    def managingButton_clicked(self):
-        self.managingWindow = managerManagingWindow.managerManagingWindow()
-        self.managingWindow.show()
-        self.close()
-
-    def profileButton_clicked(self):
-        self.profile = profilewindow.profilewindow()
-        self.profile.show()
-        self.close()

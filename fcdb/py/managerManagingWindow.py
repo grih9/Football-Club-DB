@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets
 
 from choose import Ui_MainWindow as managerChooseMain
 import managerMenuWindow
+import newPlayerWindow
 
 class managerManagingWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -20,6 +21,7 @@ class managerManagingWindow(QtWidgets.QMainWindow):
         self.ui.addButton.clicked.connect(self.addButton_clicked)
         self.ui.updateButton.clicked.connect(self.updateButton_clicked)
         self.ui.deleteButton.clicked.connect(self.deleteButton_clicked)
+        self.ui.playerButton.clicked.connect(self.playerButton_clicked)
 
     def backButton_clicked(self):
         if self.button == None:
@@ -88,3 +90,15 @@ class managerManagingWindow(QtWidgets.QMainWindow):
         self.ui.stadiumButton.show()
         self.ui.teamButton.show()
         self.ui.managerButton.show()
+
+    def playerButton_clicked(self):
+        if (self.button == "Add"):
+            self.add = newPlayerWindow.newPlayerWindow()
+        elif (self.button == "Update"):
+            #self.update = newPlayerWindow.newPlayerWindow()
+            print(1)
+        elif (self.button == "Delete"):
+            #self.delete = newPlayerWindow.newPlayerWindow()
+            print(2)
+        self.add.show()
+        self.close()

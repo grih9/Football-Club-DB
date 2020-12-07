@@ -5,6 +5,8 @@ from login import Ui_MainWindow as loginmain
 import mainwindow
 import managerMenuWindow
 import menuFanWindow
+import coachMenuWindow
+import playerMenuWindow
 import sql
 
 class loginindow(QtWidgets.QMainWindow):
@@ -66,10 +68,10 @@ class loginindow(QtWidgets.QMainWindow):
                 properties.current_userID = id
                 if properties.current_role == 1:
                     self.menu = managerMenuWindow.managerMenuWindow()
-                #elif properties.current_role == 2:
-                #    self.menu = coachMenuWindow()
-                #elif properties.current_role == 3:
-                #    self.menu = playerMenuWindow()
+                elif properties.current_role == 2:
+                    self.menu = coachMenuWindow.coachMenuWindow()
+                elif properties.current_role == 3:
+                    self.menu = playerMenuWindow.playerMenuWindow()
                 elif properties.current_role == 4:
                     self.menu = menuFanWindow.menuFanWindow()
                 self.menu.show()

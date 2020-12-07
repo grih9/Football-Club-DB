@@ -59,7 +59,7 @@
       <rect>
        <x>250</x>
        <y>480</y>
-       <width>451</width>
+       <width>391</width>
        <height>61</height>
       </rect>
      </property>
@@ -92,7 +92,7 @@
       </size>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit">
+    <widget class="QLineEdit" name="nameLine">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -161,7 +161,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="loginLine">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -205,7 +205,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_3">
+    <widget class="QLineEdit" name="passwordLine">
      <property name="geometry">
       <rect>
        <x>300</x>
@@ -227,7 +227,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_4">
+    <widget class="QLineEdit" name="passwordConfirmLine">
      <property name="geometry">
       <rect>
        <x>595</x>
@@ -252,7 +252,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QDateEdit" name="dateEdit">
+    <widget class="QDateEdit" name="birthdayLine">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -355,7 +355,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_5">
+    <widget class="QLineEdit" name="surnameLine">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -399,7 +399,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox">
+    <widget class="QComboBox" name="positionBox">
      <property name="geometry">
       <rect>
        <x>640</x>
@@ -416,6 +416,9 @@
      </property>
      <property name="cursor">
       <cursorShape>ArrowCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
      </property>
      <property name="placeholderText">
       <string>Позиция</string>
@@ -471,7 +474,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QSpinBox" name="spinBox">
+    <widget class="QSpinBox" name="height">
      <property name="geometry">
       <rect>
        <x>660</x>
@@ -499,7 +502,7 @@
       <number>180</number>
      </property>
     </widget>
-    <widget class="QDoubleSpinBox" name="doubleSpinBox">
+    <widget class="QDoubleSpinBox" name="weightLine">
      <property name="geometry">
       <rect>
        <x>660</x>
@@ -580,7 +583,7 @@
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_6">
+    <widget class="QLineEdit" name="nationLine">
      <property name="geometry">
       <rect>
        <x>320</x>
@@ -646,7 +649,7 @@
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QCheckBox" name="checkBox">
+    <widget class="QCheckBox" name="showPasswordCheckBox">
      <property name="geometry">
       <rect>
        <x>565</x>
@@ -659,7 +662,7 @@
       <string/>
      </property>
     </widget>
-    <widget class="QComboBox" name="comboBox_2">
+    <widget class="QComboBox" name="numberBox">
      <property name="geometry">
       <rect>
        <x>410</x>
@@ -674,14 +677,12 @@
        <pointsize>14</pointsize>
       </font>
      </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255);</string>
+     </property>
      <item>
       <property name="text">
        <string/>
-      </property>
-     </item>
-     <item>
-      <property name="text">
-       <string>99</string>
       </property>
      </item>
     </widget>
@@ -711,7 +712,7 @@
      </property>
     </widget>
    </widget>
-   <widget class="QCommandLinkButton" name="enterButton_2">
+   <widget class="QCommandLinkButton" name="backButton">
     <property name="geometry">
      <rect>
       <x>900</x>
@@ -765,7 +766,7 @@
  <resources>
   <include location="../resources/players.qrc"/>
   <include location="../resources/eye.qrc"/>
-  <include location="eye.qrc"/>
+  <include location="../resources/eye.qrc"/>
  </resources>
  <connections/>
 </ui>
