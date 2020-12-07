@@ -5,6 +5,7 @@ import mainwindow
 import managerManagingWindow
 import profilewindow
 import properties
+import teamWindow
 
 class managerMenuWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -14,6 +15,7 @@ class managerMenuWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Руководство")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         self.ui.managingButton.clicked.connect(self.managingButton_clicked)
+        self.ui.teamButton.clicked.connect(self.teamButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
 
     def exitButton_clicked(self):
@@ -27,6 +29,11 @@ class managerMenuWindow(QtWidgets.QMainWindow):
             self.main = mainwindow.mainwindow()
             self.main.show()
             self.close()
+
+    def teamButton_clicked(self):
+        self.team = teamWindow.teamWindow()
+        self.team.show()
+        self.close()
 
     def managingButton_clicked(self):
         self.managingWindow = managerManagingWindow.managerManagingWindow()
