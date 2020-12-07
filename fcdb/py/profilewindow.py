@@ -113,7 +113,7 @@ class profilewindow(QtWidgets.QMainWindow):
             salary = row[0]
             expDate = row[1]
             salary = str(round(salary,2))
-            self.ui.salaryLabel.setText(salary + "m €/год")
+            self.ui.salaryLabel.setText(salary + "м €/год")
             self.ui.expireDateLabel.setText(expDate)
             self.ui.loginLabel.setText(login)
             self.ui.birthdayLabel.setText(birthday)
