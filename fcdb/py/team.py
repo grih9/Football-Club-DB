@@ -60,6 +60,10 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
         self.tabWidget.setGeometry(QtCore.QRect(10, 150, 991, 521))
+        font = QtGui.QFont()
+        font.setFamily("Verdana")
+        font.setPointSize(11)
+        self.tabWidget.setFont(font)
         self.tabWidget.setStyleSheet("background-color: rgb(255, 237, 237);\n"
 "color: rgb(0, 0, 0)")
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.Rounded)
@@ -424,7 +428,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -485,3 +489,4 @@ class Ui_MainWindow(object):
         item = self.fansTabel.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Пол"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.fans), _translate("MainWindow", "Болельщики"))
+

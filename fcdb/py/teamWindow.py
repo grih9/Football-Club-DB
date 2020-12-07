@@ -63,6 +63,30 @@ class teamWindow(QtWidgets.QMainWindow):
         self.ui.capacityLabel.setText(str(capacity))
         self.ui.coachLabel.setText((coachFIO.rstrip() + " (" + coachCountry.lstrip()).rstrip() + ")")
         self.ui.ownerLabel.setText((ownerFIO.rstrip() + " (" + ownerCountry.lstrip()).rstrip() + ")")
+        if properties.current_role == 1:
+            self.ui.team.show()
+            self.ui.players.show()
+            self.ui.coaches.show()
+            self.ui.contracts.show()
+            self.ui.fans.show()
+        elif properties.current_role == 2:
+            self.ui.team.show()
+            self.ui.players.show()
+            self.ui.coaches.show()
+            self.ui.tabWidget.removeTab(4)
+            self.ui.tabWidget.removeTab(3)
+        elif properties.current_role == 3:
+            self.ui.team.show()
+            self.ui.players.show()
+            self.ui.coaches.show()
+            self.ui.tabWidget.removeTab(4)
+            self.ui.tabWidget.removeTab(3)
+        elif properties.current_role == 4:
+            self.ui.team.show()
+            self.ui.players.show()
+            self.ui.coaches.show()
+            self.ui.tabWidget.removeTab(4)
+            self.ui.tabWidget.removeTab(3)
     def backButton_clicked(self):
         if properties.current_role == 1:
             self.menu = managerMenuWindow.managerMenuWindow()

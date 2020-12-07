@@ -5,7 +5,7 @@ import mainwindow
 from menuFan import Ui_MainWindow as menuFanMain
 import profilewindow
 import teamWindow
-
+import ticketsWindow
 
 class menuFanWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -15,13 +15,18 @@ class menuFanWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Болельщик")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         self.ui.teamButton.clicked.connect(self.teamButton_clicked)
-        #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
+        self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
         #self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
         #self.ui.calendarButton.clicked.connect(self.calendarButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
     def profileButton_clicked(self):
         self.profile = profilewindow.profilewindow()
         self.profile.show()
+        self.close()
+
+    def ticketsButton_clicked(self):
+        self.tickets = ticketsWindow.ticketsWindow()
+        self.tickets.show()
         self.close()
 
     def teamButton_clicked(self):
