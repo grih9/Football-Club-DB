@@ -1,29 +1,25 @@
+from newCoach import Ui_MainWindow as newCoachMain
+
 from PyQt5 import QtWidgets, QtCore
-from new import Ui_MainWindow as newPlayerMain
+
 import managerManagingWindow
 import sql
 import contractWindow
 
-class newPlayerWindow(QtWidgets.QMainWindow):
+class newCoachWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self.ui = newPlayerMain()
+        self.ui = newCoachMain()
         self.ui.setupUi(self)
-        self.setWindowTitle("Добавление нового игрока")
+        self.setWindowTitle("Добавление нового работника")
         self.ui.backButton.clicked.connect(self.backButton_clicked)
+        self.ui.myTeamCheckBox.stateChanged.connect(self.myTeamCheckHandler)
         self.ui.showPasswordCheckBox.stateChanged.connect(self.checkboxHandler)
         self.ui.enterButton.clicked.connect(self.enterButton_clicked)
         self.ui.dontCreateCheckBox.stateChanged.connect(self.dontCreateHandler)
         self.db = sql.Sql("football_club")
-        self.db.cursor.execute("SELECT Номер_футболиста from Футболисты")
-        freeNumbers = [0 for j in range(99)]
-        row = self.db.cursor.fetchone()
-        while (row is not None):
-            freeNumbers[row[0] - 1] = 1
-            row = self.db.cursor.fetchone()
-        for i in range(99):
-            if freeNumbers[i] == 0:
-                number = self.ui.numberBox.addItem(str(i + 1))
+        self.ui.teamCombo.clear()
+        self.ui.teamCombo.addItem("Манчестер Юнайтед")
 
 
     def backButton_clicked(self):
@@ -39,12 +35,58 @@ class newPlayerWindow(QtWidgets.QMainWindow):
             self.ui.passwordConfirmLine.setEchoMode(QtWidgets.QLineEdit.Password)
             self.ui.passwordLine.setEchoMode(QtWidgets.QLineEdit.Password)
 
+    def myTeamCheckHandler(self, state):
+        if self.ui.myTeamCheckBox.isChecked():
+            self.ui.teamCombo.clear()
+            self.ui.teamCombo.addItem("Манчестер Юнайтед")
+            self.ui.workLabel.show()
+            self.ui.workLine.show()
+            self.ui.passwordConfirmLine.show()
+            self.ui.dontCreateCheckBox.show()
+            self.ui.dontCreateCheckBox.setChecked(False)
+            self.ui.passwordLine.show()
+            self.ui.loginLine.show()
+            self.ui.loginLabel.show()
+            self.ui.passwordConfirm.show()
+            self.ui.passwordLabel.show()
+            self.ui.showPasswordCheckBox.show()
+            self.ui.eyeLabel.show()
+
+        else:
+            self.ui.teamCombo.clear()
+            self.ui.teamCombo.addItem("")
+            self.db.cursor.execute(
+                "SELECT Команда FROM Команды where Команда != 'Манчестер Юнайтед' order by Команда ASC")
+            row = self.db.cursor.fetchone()
+            while (row is not None):
+                self.ui.teamCombo.addItem(row[0].rstrip())
+                row = self.db.cursor.fetchone()
+
+            self.ui.dontCreateCheckBox.setChecked(True)
+            self.ui.dontCreateCheckBox.hide()
+            self.ui.workLabel.hide()
+            self.ui.workLine.hide()
+            self.ui.passwordConfirmLine.hide()
+            self.ui.passwordLine.hide()
+            self.ui.loginLine.hide()
+            self.ui.workLine.clear()
+            self.ui.loginLine.clear()
+            self.ui.passwordLine.clear()
+            self.ui.passwordConfirmLine.clear()
+            self.ui.showPasswordCheckBox.setChecked(False)
+            self.ui.loginLabel.hide()
+            self.ui.passwordConfirm.hide()
+            self.ui.passwordLabel.hide()
+            self.ui.showPasswordCheckBox.hide()
+            self.ui.eyeLabel.hide()
+
     def dontCreateHandler(self, state):
         if self.ui.dontCreateCheckBox.isChecked():
             self.ui.passwordLine.setEnabled(False)
             self.ui.passwordConfirmLine.setEnabled(False)
             self.ui.loginLine.setEnabled(False)
             self.ui.showPasswordCheckBox.setEnabled(False)
+            self.ui.showPasswordCheckBox.setChecked(False)
         else:
             self.ui.passwordLine.setEnabled(True)
             self.ui.passwordConfirmLine.setEnabled(True)

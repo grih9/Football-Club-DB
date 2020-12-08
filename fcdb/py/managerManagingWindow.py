@@ -3,6 +3,7 @@ from PyQt5 import QtWidgets
 from choose import Ui_MainWindow as managerChooseMain
 import managerMenuWindow
 import newPlayerWindow
+import newCoachWindow
 
 class managerManagingWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -22,6 +23,7 @@ class managerManagingWindow(QtWidgets.QMainWindow):
         self.ui.updateButton.clicked.connect(self.updateButton_clicked)
         self.ui.deleteButton.clicked.connect(self.deleteButton_clicked)
         self.ui.playerButton.clicked.connect(self.playerButton_clicked)
+        self.ui.coachButton.clicked.connect(self.coachButton_clicked)
 
     def backButton_clicked(self):
         if self.button == None:
@@ -94,6 +96,18 @@ class managerManagingWindow(QtWidgets.QMainWindow):
     def playerButton_clicked(self):
         if (self.button == "Add"):
             self.add = newPlayerWindow.newPlayerWindow()
+        elif (self.button == "Update"):
+            #self.update = newPlayerWindow.newPlayerWindow()
+            print(1)
+        elif (self.button == "Delete"):
+            #self.delete = newPlayerWindow.newPlayerWindow()
+            print(2)
+        self.add.show()
+        self.close()
+
+    def coachButton_clicked(self):
+        if (self.button == "Add"):
+            self.add = newCoachWindow.newCoachWindow()
         elif (self.button == "Update"):
             #self.update = newPlayerWindow.newPlayerWindow()
             print(1)

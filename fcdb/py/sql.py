@@ -42,7 +42,7 @@ class Sql:
     def addFan(self, id, name, surname, gender, birthday):
         name = name.rstrip()
         surname = surname.lstrip()
-        fio = name + " " + surname
+        fio = (name + " " + surname).rstip()
         try:
             self.cursor.execute("INSERT INTO Болельщики(ФИО, Пол, Дата_рождения, ID_пользователя) "
                               "VALUES ('" + fio + "','" + gender + "', '" + birthday + "',"+ str(id) +")")
@@ -52,10 +52,38 @@ class Sql:
             print(e)
             return False
 
+    def addPlayer(self, id, name, surname, nation, birthday, pos, number, height, weight):
+        name = name.rstrip()
+        surname = surname.lstrip()
+        fio = (name + " " + surname).rstrip()
+        if (pos == "Вратарь"):
+            pos = "В"
+        elif (pos == "Защитник"):
+            pos = "З"
+        elif (pos == "Полузащитник"):
+            pos = "П"
+        elif (pos == "Нападающий"):
+            pos = "Н"
+        try:
+            self.cursor.execute("INSERT INTO Футболисты(ФИО, Национальность, Дата_рождения, Позиция, Номер_футболиста, Рост, Вес, ID_пользователя) "
+                                "VALUES ('"+ fio +"', '" + nation +"', '" +birthday + "', '" +pos +"', " + str(number) +", " + str(height) + ", " + str(weight).replace(',','.') + ", "+ str(id) +")")
+            self.cnxn.commit()
+            self.cursor.execute("SELECT ID_футболиста from Футболисты where Номер_футболиста=" + number)
+            row = self.cursor.fetchone()
+            return True, row[0]
+        except pyodbc.Error as e:
+            print(e)
+            return False, 0
 
     def updatePassword(self, login, password):
         cipher = Fernet(properties.cipher_key)
         encrypted_password = password.encode('utf8')
         encrypted_password = cipher.encrypt(encrypted_password)
         self.cursor.execute("UPDATE Пользователи SET Пароль='"+encrypted_password.decode("utf-8")+"' where Логин='"+login+"'")
+        self.cnxn.commit()
+
+    def updateContract(self, fid, salary, date):
+        self.cursor.execute("UPDATE Контракты SET Зарплата="+ str(salary) +" where ID_футболиста="+ str(fid))
+        self.cnxn.commit()
+        self.cursor.execute("UPDATE Контракты SET Дата_окончания='" + date + "' where ID_футболиста=" + str(fid))
         self.cnxn.commit()

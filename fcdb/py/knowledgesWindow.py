@@ -44,8 +44,8 @@ class knowledgesWindow(QtWidgets.QMainWindow):
         self.db.cursor.execute(
             "SELECT k.Команда, k.Страна, k.Город, s.Название, t.ФИО, v.ФИО, k.Контакты FROM Команды k "
             "join Стадионы s on s.ID_стадиона = k.ID_стадиона "
-            "join Тренеры_и_персонал t on t.ID_cпециалиста= k.ID_главного_тренера "
-            "join Руководство v on v.ID_владельца = k.ID_владельца")
+            "left join Тренеры_и_персонал t on t.ID_cпециалиста= k.ID_главного_тренера "
+            "left join Руководство v on v.ID_владельца = k.ID_владельца")
 
         row = self.db.cursor.fetchone()
         i = 0
@@ -56,7 +56,7 @@ class knowledgesWindow(QtWidgets.QMainWindow):
             for j in range(7):
                 if (row[j] is None):
                     self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem("-"))
-                elif (j == 5 and row[j].rstrip() == "Другой"):
+                elif (((j == 5) or (j == 4)) and row[j].rstrip() == "Другой"):
                     self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem("-"))
                 else:
                     self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j]).rstrip()))
@@ -93,7 +93,7 @@ class knowledgesWindow(QtWidgets.QMainWindow):
                 for j in range(7):
                     if (row[j] is None):
                         self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem("-"))
-                    elif ((j == 5) or (j == 4) and row[j].rstrip() == "Другой"):
+                    elif (((j == 5) or (j == 4)) and row[j].rstrip() == "Другой"):
                         self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem("-"))
                     else:
                         self.ui.teamsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j]).rstrip()))

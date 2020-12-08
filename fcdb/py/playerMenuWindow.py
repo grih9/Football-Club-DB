@@ -18,7 +18,7 @@ class playerMenuWindow(QtWidgets.QMainWindow):
         self.ui.teamButton.clicked.connect(self.teamButton_clicked)
         #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
         self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
-        self.ui.calendarButton.clicked.connect(self.resutlsButton_clicked)
+        self.ui.calendarButton.clicked.connect(self.resultsButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
 
     def profileButton_clicked(self):
