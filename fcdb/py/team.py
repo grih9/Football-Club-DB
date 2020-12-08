@@ -14,6 +14,7 @@ import eye
 import home
 import logo
 
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -489,4 +490,3 @@ class Ui_MainWindow(object):
         item = self.fansTabel.horizontalHeaderItem(2)
         item.setText(_translate("MainWindow", "Пол"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.fans), _translate("MainWindow", "Болельщики"))
-

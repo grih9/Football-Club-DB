@@ -93,7 +93,7 @@
      <string notr="true">color: rgb(220, 220, 220);</string>
     </property>
     <property name="text">
-     <string>МОЯ КОМАНДА</string>
+     <string>МОИ БИЛЕТЫ</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
@@ -1067,9 +1067,9 @@ color: rgb(220, 220, 220)</string>
       <widget class="QLabel" name="fioLabel">
        <property name="geometry">
         <rect>
-         <x>700</x>
+         <x>680</x>
          <y>70</y>
-         <width>221</width>
+         <width>241</width>
          <height>21</height>
         </rect>
        </property>
@@ -1151,7 +1151,7 @@ color: rgb(220, 220, 220)</string>
         <rect>
          <x>530</x>
          <y>60</y>
-         <width>151</width>
+         <width>141</width>
          <height>51</height>
         </rect>
        </property>
@@ -1172,7 +1172,7 @@ color: rgb(220, 220, 220)</string>
         <rect>
          <x>530</x>
          <y>150</y>
-         <width>151</width>
+         <width>141</width>
          <height>51</height>
         </rect>
        </property>

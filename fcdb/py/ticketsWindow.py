@@ -1,4 +1,4 @@
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, Qt
 
 import menuFanWindow
 import properties
@@ -13,8 +13,8 @@ class ticketsWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         header = self.ui.ticketsTable.horizontalHeader()
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)
@@ -22,8 +22,8 @@ class ticketsWindow(QtWidgets.QMainWindow):
         header.setSectionResizeMode(7, QtWidgets.QHeaderView.ResizeToContents)
         header = self.ui.historyTabel.horizontalHeader()
         header.setSectionResizeMode(0, QtWidgets.QHeaderView.ResizeToContents)
-        header.setSectionResizeMode(1, QtWidgets.QHeaderView.Stretch)
-        header.setSectionResizeMode(2, QtWidgets.QHeaderView.Stretch)
+        header.setSectionResizeMode(1, QtWidgets.QHeaderView.ResizeToContents)
+        header.setSectionResizeMode(2, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(3, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(4, QtWidgets.QHeaderView.ResizeToContents)
         header.setSectionResizeMode(5, QtWidgets.QHeaderView.ResizeToContents)
@@ -71,7 +71,7 @@ class ticketsWindow(QtWidgets.QMainWindow):
                 item = QtWidgets.QTableWidgetItem()
                 self.ui.ticketsTable.setVerticalHeaderItem(i, item)
                 for j in range(8):
-                    self.ui.ticketsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                    self.ui.ticketsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j]).rstrip()))
                     self.ui.ticketsTable.item(i, j).setFlags(QtCore.Qt.NoItemFlags)
                 row = self.db.cursor.fetchone()
                 i += 1
@@ -149,7 +149,7 @@ class ticketsWindow(QtWidgets.QMainWindow):
                     item = QtWidgets.QTableWidgetItem()
                     self.ui.ticketsTable.setVerticalHeaderItem(i, item)
                     for j in range(8):
-                        self.ui.ticketsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                        self.ui.ticketsTable.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j]).rstrip()))
                         self.ui.ticketsTable.item(i, j).setFlags(QtCore.Qt.NoItemFlags)
                     row = self.db.cursor.fetchone()
                     i += 1
@@ -176,7 +176,7 @@ class ticketsWindow(QtWidgets.QMainWindow):
                     item = QtWidgets.QTableWidgetItem()
                     self.ui.historyTabel.setVerticalHeaderItem(i, item)
                     for j in range(8):
-                        self.ui.historyTabel.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                        self.ui.historyTabel.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j]).rstrip()))
                         self.ui.historyTabel.item(i, j).setFlags(QtCore.Qt.NoItemFlags)
                     row = self.db.cursor.fetchone()
                     i += 1

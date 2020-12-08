@@ -5,6 +5,8 @@ import profilewindow
 import properties
 from coachMenu import Ui_MainWindow as coachMenuMain
 import teamWindow
+import resultsWindow
+import knowledgesWindow
 
 class coachMenuWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -15,8 +17,8 @@ class coachMenuWindow(QtWidgets.QMainWindow):
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         self.ui.teamButton.clicked.connect(self.teamButton_clicked)
         #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
-        #self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
-        #self.ui.calendarButton.clicked.connect(self.calendarButton_clicked)
+        self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
+        self.ui.calendarButton.clicked.connect(self.resultsButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
     def profileButton_clicked(self):
         self.profile = profilewindow.profilewindow()
@@ -26,6 +28,16 @@ class coachMenuWindow(QtWidgets.QMainWindow):
     def teamButton_clicked(self):
         self.team = teamWindow.teamWindow()
         self.team.show()
+        self.close()
+
+    def resultsButton_clicked(self):
+        self.results = resultsWindow.resultsWindow()
+        self.results.show()
+        self.close()
+
+    def knowledgesButton_clicked(self):
+        self.knowledges = knowledgesWindow.knowledgesWindow()
+        self.knowledges.show()
         self.close()
 
     def exitButton_clicked(self):

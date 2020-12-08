@@ -177,8 +177,7 @@ class teamWindow(QtWidgets.QMainWindow):
         elif (index == 4):
             self.ui.fansTabel.setRowCount(0)
             self.db.cursor.execute(
-                "SELECT ФИО, Пол, Дата_рождения FROM Болельщики")
-            row = self.db.cursor.fetchone()
+                "SELECT ФИО, Пол, Дата_рождения FROM Болельщики where ID_болельщика != 0")
             row = self.db.cursor.fetchone()
             i = 0
             while (row is not None):
