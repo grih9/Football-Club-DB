@@ -51,6 +51,8 @@ class teamWindow(QtWidgets.QMainWindow):
         self.ui.forwardRadio.clicked.connect(self.forwardRadioHandler)
         self.ui.goalkeepersRadio.clicked.connect(self.goalkeepersRadioHandler)
         self.ui.injCheckBox.stateChanged.connect(self.injCheckBoxHandler)
+        self.ui.expiredRadio.clicked.connect(self.expiredRadioHandler)
+        self.ui.allRadio.clicked.connect(self.allRadioHandler)
 
         self.db = sql.Sql("football_club")
         self.db.cursor.execute(
@@ -58,7 +60,7 @@ class teamWindow(QtWidgets.QMainWindow):
             "Тренеры_и_персонал.Национальность, Руководство.ФИО, Руководство.Национальность"
             " FROM Команды "
             "join Стадионы on Стадионы.ID_стадиона = Команды.ID_стадиона "
-            "join Тренеры_и_персонал on Тренеры_и_персонал.ID_cпециалиста=ID_главного_тренера "
+            "join Тренеры_и_персонал on Тренеры_и_персонал.ID_специалиста=ID_главного_тренера "
             "join Руководство on Руководство.ID_владельца = Команды.ID_владельца "
             "where  Команды.Команда ='" + str("Манчестер Юнайтед") + "'")
         row = self.db.cursor.fetchone()
@@ -139,7 +141,7 @@ class teamWindow(QtWidgets.QMainWindow):
                 "Тренеры_и_персонал.Национальность, Руководство.ФИО, Руководство.Национальность"
                 " FROM Команды "
                 "join Стадионы on Стадионы.ID_стадиона = Команды.ID_стадиона "
-                "join Тренеры_и_персонал on Тренеры_и_персонал.ID_cпециалиста=ID_главного_тренера "
+                "join Тренеры_и_персонал on Тренеры_и_персонал.ID_специалиста=ID_главного_тренера "
                 "join Руководство on Руководство.ID_владельца = Команды.ID_владельца "
                 "where  Команды.Команда ='" + str("Манчестер Юнайтед") + "'")
             row = self.db.cursor.fetchone()
@@ -249,8 +251,8 @@ class teamWindow(QtWidgets.QMainWindow):
                     row = self.db.cursor.fetchone()
                     i += 1
             else:
-                self.ui.noFansLabel_3.show()
-                self.ui.fansTabel.hide()
+                self.ui.noContractrsLabel.show()
+                self.ui.contractsTabel.hide()
         elif (index == 4):
             self.ui.injCheckBox.setChecked(False)
             self.ui.defB.setChecked(True)
@@ -649,3 +651,70 @@ class teamWindow(QtWidgets.QMainWindow):
                 self.midRadioHandler()
             elif self.ui.forwardRadio.isChecked():
                 self.forwardRadioHandler()
+
+    def expiredRadioHandler(self):
+        self.ui.noContractrsLabel.hide()
+        self.ui.contractsTabel.show()
+        self.ui.contractsTabel.setRowCount(0)
+        self.db.cursor.execute("SELECT Номер_футболиста, ФИО, Зарплата, Дата_окончания "
+                               "FROM Контракты, Футболисты "
+                               "where Контракты.ID_футболиста = Футболисты.ID_футболиста "
+                               "and DATEDIFF(DAY, CURRENT_TIMESTAMP, Дата_окончания) < 366 "
+                               "order by Дата_окончания asc")
+
+        row = self.db.cursor.fetchone()
+        if row is not None:
+            i = 0
+            while (row is not None):
+                self.ui.contractsTabel.setRowCount(self.ui.contractsTabel.rowCount() + 1)
+                item = QtWidgets.QTableWidgetItem()
+                self.ui.contractsTabel.setVerticalHeaderItem(i, item)
+                for j in range(4):
+                    if (j == 2):
+                        self.ui.contractsTabel.setItem(i, j, QtWidgets.QTableWidgetItem(
+                        str(round(row[j], 2)) + "м €/год"))
+                    else:
+                        self.ui.contractsTabel.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                    self.ui.contractsTabel.item(i, j).setFlags(QtCore.Qt.NoItemFlags)
+                row = self.db.cursor.fetchone()
+                i += 1
+        else:
+            self.ui.noContractrsLabel.show()
+            self.ui.contractsTabel.hide()
+
+    def allRadioHandler(self):
+        self.ui.injCheckBox.setChecked(False)
+        self.ui.defB.setChecked(True)
+        self.ui.noContractrsLabel.hide()
+        self.ui.noPlayersLabel.hide()
+        self.ui.noFansLabel_3.hide()
+        self.ui.noFansLabel_3.hide()
+        self.ui.fansTabel.show()
+        self.ui.allPlayersRadio.setChecked(True)
+        self.ui.allRadio.setChecked(True)
+        self.ui.youngRadio.setChecked(False)
+        self.ui.maleRadio.setChecked(False)
+        self.ui.femaleRadio.setChecked(False)
+        self.ui.contractsTabel.setRowCount(0)
+        self.db.cursor.execute(
+            "SELECT Номер_футболиста, ФИО, Зарплата, Дата_окончания  FROM Контракты"
+            " join Футболисты on Футболисты.ID_футболиста=Контракты.ID_футболиста order by Номер_футболиста")
+        row = self.db.cursor.fetchone()
+        if (row is not None):
+            i = 0
+            while (row is not None):
+                self.ui.contractsTabel.setRowCount(self.ui.contractsTabel.rowCount() + 1)
+                item = QtWidgets.QTableWidgetItem()
+                self.ui.contractsTabel.setVerticalHeaderItem(i, item)
+                for j in range(4):
+                    if (j == 2):
+                        self.ui.contractsTabel.setItem(i, j, QtWidgets.QTableWidgetItem(
+                            str(round(row[j], 2)) + "м €/год"))
+                    else:
+                        self.ui.contractsTabel.setItem(i, j, QtWidgets.QTableWidgetItem(str(row[j])))
+                    self.ui.contractsTabel.item(i, j).setFlags(QtCore.Qt.NoItemFlags)
+                row = self.db.cursor.fetchone()
+                i += 1
+        else:
+            self.ui.noContractrsLabel.show()
+            self.ui.fansTabel.hide()

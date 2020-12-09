@@ -17,6 +17,7 @@ class profilewindow(QtWidgets.QMainWindow):
         self.ui = profileMain()
         self.ui.setupUi(self)
         self.setWindowTitle("Профиль")
+        self.ui.editbutton.hide()
         self.ui.backButton.clicked.connect(self.backButton_clicked)
         self.ui.showPassword.pressed.connect(self.showPassword_pressed)
         self.ui.showPassword.released.connect(self.showPassword_released)

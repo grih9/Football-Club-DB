@@ -10,7 +10,7 @@ class regFanWindow(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.setWindowTitle("Регистрация болельщика")
         self.ui.backButton.clicked.connect(self.backButton_clicked)
-        self.ui.passwodCheckbox. stateChanged.connect(self.checkboxHandler)
+        self.ui.passwodCheckbox.stateChanged.connect(self.checkboxHandler)
         self.ui.createAccountButton.clicked.connect(self.createButton_clicked)
 
     def backButton_clicked(self):

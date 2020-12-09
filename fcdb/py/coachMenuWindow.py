@@ -7,6 +7,7 @@ from coachMenu import Ui_MainWindow as coachMenuMain
 import teamWindow
 import resultsWindow
 import knowledgesWindow
+import trainingWindow
 
 class coachMenuWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -16,7 +17,7 @@ class coachMenuWindow(QtWidgets.QMainWindow):
         self.setWindowTitle("Тренерский штаб")
         self.ui.exitButton.clicked.connect(self.exitButton_clicked)
         self.ui.teamButton.clicked.connect(self.teamButton_clicked)
-        #self.ui.ticketsButton.clicked.connect(self.ticketsButton_clicked)
+        self.ui.trainingButton.clicked.connect(self.trainingButton_clicked)
         self.ui.knowledgesButton.clicked.connect(self.knowledgesButton_clicked)
         self.ui.calendarButton.clicked.connect(self.resultsButton_clicked)
         self.ui.profileButton.clicked.connect(self.profileButton_clicked)
@@ -38,6 +39,11 @@ class coachMenuWindow(QtWidgets.QMainWindow):
     def knowledgesButton_clicked(self):
         self.knowledges = knowledgesWindow.knowledgesWindow()
         self.knowledges.show()
+        self.close()
+
+    def trainingButton_clicked(self):
+        self.train = trainingWindow.trainingWindow()
+        self.train.show()
         self.close()
 
     def exitButton_clicked(self):

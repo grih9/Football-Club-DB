@@ -19,6 +19,8 @@ class managerManagingWindow(QtWidgets.QMainWindow):
         self.ui.teamButton.hide()
         self.ui.managerButton.hide()
         self.setWindowTitle("Руководство")
+        self.ui.updateButton.hide()
+        self.ui.deleteButton.hide()
         self.ui.backButton.clicked.connect(self.backButton_clicked)
         self.ui.addButton.clicked.connect(self.addButton_clicked)
         self.ui.updateButton.clicked.connect(self.updateButton_clicked)
@@ -58,9 +60,9 @@ class managerManagingWindow(QtWidgets.QMainWindow):
         self.ui.coachButton.show()
         self.ui.playerButton.show()
         self.button = "Add"
-        self.ui.fanButton.show()
-        self.ui.stadiumButton.show()
-        self.ui.teamButton.show()
+        #self.ui.fanButton.show()
+        #self.ui.stadiumButton.show()
+        #self.ui.teamButton.show()
         self.ui.managerButton.show()
 
     def updateButton_clicked(self):

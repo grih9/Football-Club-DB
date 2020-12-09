@@ -44,7 +44,7 @@ class knowledgesWindow(QtWidgets.QMainWindow):
         self.db.cursor.execute(
             "SELECT k.Команда, k.Страна, k.Город, s.Название, t.ФИО, v.ФИО, k.Контакты FROM Команды k "
             "join Стадионы s on s.ID_стадиона = k.ID_стадиона "
-            "left join Тренеры_и_персонал t on t.ID_cпециалиста= k.ID_главного_тренера "
+            "left join Тренеры_и_персонал t on t.ID_специалиста= k.ID_главного_тренера "
             "left join Руководство v on v.ID_владельца = k.ID_владельца")
 
         row = self.db.cursor.fetchone()
@@ -81,7 +81,7 @@ class knowledgesWindow(QtWidgets.QMainWindow):
             self.db.cursor.execute(
                 "SELECT k.Команда, k.Страна, k.Город, s.Название, t.ФИО, v.ФИО, k.Контакты FROM Команды k "
                 "join Стадионы s on s.ID_стадиона = k.ID_стадиона "
-                "left join Тренеры_и_персонал t on t.ID_cпециалиста= k.ID_главного_тренера "
+                "left join Тренеры_и_персонал t on t.ID_специалиста= k.ID_главного_тренера "
                 "left join Руководство v on v.ID_владельца = k.ID_владельца")
 
             row = self.db.cursor.fetchone()
@@ -105,7 +105,7 @@ class knowledgesWindow(QtWidgets.QMainWindow):
             self.ui.coachesTable.setRowCount(0)
             self.db.cursor.execute(
                 "SELECT t.ФИО, t.Национальность, t.Дата_рождения, k.Команда FROM Тренеры_и_персонал t "
-                "left join Команды k on t.ID_cпециалиста=k.ID_главного_тренера where t.Должность = 'Главный тренер'")
+                "left join Команды k on t.ID_специалиста=k.ID_главного_тренера where t.Должность = 'Главный тренер'")
             row = self.db.cursor.fetchone()
             i = 0
             while (row is not None):
