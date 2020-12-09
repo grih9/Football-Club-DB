@@ -141,7 +141,7 @@ color: rgb(0, 0, 0)</string>
      <enum>QTabWidget::Rounded</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>4</number>
     </property>
     <property name="tabBarAutoHide">
      <bool>true</bool>
@@ -590,6 +590,128 @@ color: rgb(0, 0, 0)</string>
        </property>
       </column>
      </widget>
+     <widget class="QRadioButton" name="allPlayersRadio">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>15</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Все</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="goalkeepersRadio">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>15</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Вратари</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="defRadio">
+      <property name="geometry">
+       <rect>
+        <x>210</x>
+        <y>15</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Защитники</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="midRadio">
+      <property name="geometry">
+       <rect>
+        <x>330</x>
+        <y>15</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Полузащитники</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="forwardRadio">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>15</y>
+        <width>121</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Нападающие</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="injCheckBox">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>15</y>
+        <width>101</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Здоровые</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="injJournalButton">
+      <property name="geometry">
+       <rect>
+        <x>802</x>
+        <y>10</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ЖУРНАЛ ТРАВМ</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="noPlayersLabel">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>190</y>
+        <width>741</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 129, 129);</string>
+      </property>
+      <property name="text">
+       <string>Таких игроков нет!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="coaches">
      <attribute name="title">
@@ -699,9 +821,9 @@ color: rgb(0, 0, 0)</string>
       <property name="geometry">
        <rect>
         <x>10</x>
-        <y>50</y>
+        <y>60</y>
         <width>971</width>
-        <height>441</height>
+        <height>431</height>
        </rect>
       </property>
       <property name="font">
@@ -790,6 +912,92 @@ color: rgb(0, 0, 0)</string>
        </property>
       </column>
      </widget>
+     <widget class="QPushButton" name="changeButton">
+      <property name="geometry">
+       <rect>
+        <x>870</x>
+        <y>15</y>
+        <width>101</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>ИЗМЕНИТЬ</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="allRadio">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>20</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Все</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="expiredRadio">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>20</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Истекают</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="playersContractsCombo">
+      <property name="geometry">
+       <rect>
+        <x>610</x>
+        <y>15</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>9</pointsize>
+       </font>
+      </property>
+     </widget>
+     <widget class="QLabel" name="noContractrsLabel">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>190</y>
+        <width>741</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 129, 129);</string>
+      </property>
+      <property name="text">
+       <string>Таких игроков нет!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="fans">
      <attribute name="title">
@@ -873,6 +1081,111 @@ color: rgb(0, 0, 0)</string>
         <set>AlignCenter</set>
        </property>
       </column>
+     </widget>
+     <widget class="QRadioButton" name="youngRadio">
+      <property name="geometry">
+       <rect>
+        <x>350</x>
+        <y>10</y>
+        <width>150</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Юные болельщики</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="maleRadio">
+      <property name="geometry">
+       <rect>
+        <x>530</x>
+        <y>10</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>Мужчины</string>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="femaleRadio">
+      <property name="geometry">
+       <rect>
+        <x>655</x>
+        <y>10</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Женщины</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="resetButton">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>10</y>
+        <width>93</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+       </font>
+      </property>
+      <property name="text">
+       <string>CБРОС</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="noFansLabel_3">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>190</y>
+        <width>741</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Verdana</family>
+        <pointsize>25</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 129, 129);</string>
+      </property>
+      <property name="text">
+       <string>Таких болельщиков нет!</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+     <widget class="QRadioButton" name="defB">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>10</y>
+        <width>95</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
      </widget>
     </widget>
    </widget>

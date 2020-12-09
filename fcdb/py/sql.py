@@ -42,7 +42,7 @@ class Sql:
     def addFan(self, id, name, surname, gender, birthday):
         name = name.rstrip()
         surname = surname.lstrip()
-        fio = (name + " " + surname).rstip()
+        fio = (name + " " + surname).rstrip()
         try:
             self.cursor.execute("INSERT INTO Болельщики(ФИО, Пол, Дата_рождения, ID_пользователя) "
                               "VALUES ('" + fio + "','" + gender + "', '" + birthday + "',"+ str(id) +")")
@@ -87,3 +87,60 @@ class Sql:
         self.cnxn.commit()
         self.cursor.execute("UPDATE Контракты SET Дата_окончания='" + date + "' where ID_футболиста=" + str(fid))
         self.cnxn.commit()
+
+    def addCoach(self, uid, n, s, nat, d, w, t):
+        name = n.rstrip()
+        surname = s.lstrip()
+        fio = (name + " " + surname).rstrip()
+        if t is None:
+            try:
+                self.cursor.execute(
+                    "INSERT INTO Тренеры_и_персонал(ФИО, Национальность, Дата_рождения, Должность, ID_пользователя) "
+                    "VALUES ('" + fio + "', '" + nat + "', '" + d + "', '" + w + "', " + str(uid) + ")")
+                self.cnxn.commit()
+                return True
+            except pyodbc.Error as e:
+                print(e)
+                return False
+        else:
+            self.cursor.execute("SELECT ID_команды from Команды where Команда='" + t + "'")
+            row = self.cursor.fetchone()
+            tid = row[0]
+            try:
+                self.cursor.execute(
+                    "INSERT INTO Тренеры_и_персонал(ФИО, Национальность, Дата_рождения, Должность, ID_команды, ID_пользователя) "
+                    "VALUES ('" + fio + "', '" + nat + "', '" + d + "', '" + w + "', " + str(
+                        tid) + ", " + str(uid) + ")")
+                self.cnxn.commit()
+                return True
+            except pyodbc.Error as e:
+                print(e)
+                return False
+
+    def addManager(self, uid, n, s, nat, d):
+        name = n.rstrip()
+        surname = s.lstrip()
+        fio = (name + " " + surname).rstrip()
+        try:
+            self.cursor.execute(
+                "INSERT INTO Руководство(ФИО, Национальность, Дата_рождения, ID_пользователя) "
+                "VALUES ('" + fio + "', '" + nat + "', '" + d + "', " + str(uid) + ")")
+            self.cnxn.commit()
+
+            row = self.cursor.execute("SELECT max(ID_владельца) from Руководство")
+            row = self.cursor.fetchone()
+            return True, row[0]
+        except pyodbc.Error as e:
+            print(e)
+            return False, 0
+
+    def changeManager(self, id, t):
+        try:
+            self.cursor.execute(
+                "UPDATE Команды set ID_Владельца =" + str(id) + " where Команда ='" + t + "'")
+            self.cnxn.commit()
+            return True
+        except pyodbc.Error as e:
+            print(e)
+            return False
+

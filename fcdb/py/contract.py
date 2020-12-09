@@ -12,7 +12,6 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import eye
 import logo
 
-
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -129,5 +128,6 @@ class Ui_MainWindow(object):
         self.groupBox.setTitle(_translate("MainWindow", "КОНТРАКТ"))
         self.createAccountButton.setText(_translate("MainWindow", "ПОДПИСАТЬ КОНТРАКТ"))
         self.label_4.setText(_translate("MainWindow", "ДАТА ОКОНЧАНИЯ"))
-        self.label_6.setText(_translate("MainWindow", "ЗАРПЛАТА (млн €/год"))
+        self.label_6.setText(_translate("MainWindow", "ЗАРПЛАТА (млн €/год)"))
         self.backButton.setText(_translate("MainWindow", "НАЗАД"))
+

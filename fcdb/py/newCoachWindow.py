@@ -4,7 +4,8 @@ from PyQt5 import QtWidgets, QtCore
 
 import managerManagingWindow
 import sql
-import contractWindow
+import teamWindow
+import knowledgesWindow
 
 class newCoachWindow(QtWidgets.QMainWindow):
     def __init__(self):
@@ -96,147 +97,260 @@ class newCoachWindow(QtWidgets.QMainWindow):
     def enterButton_clicked(self):
         n = self.ui.nameLine.text()
         s = self.ui.surnameLine.text()
-        pos = self.ui.positionBox.currentText()
-        number = self.ui.numberBox.currentText()
         nat = self.ui.nationLine.text()
-        w = self.ui.weightLine.text()
-        h = self.ui.height.text()
+        t = self.ui.teamCombo.currentText()
+        w = self.ui.workLine.text()
         d = self.ui.birthdayLine.text()
         l = self.ui.loginLine.text()
         p = self.ui.passwordLine.text()
         pp = self.ui.passwordConfirmLine.text()
         check = self.ui.dontCreateCheckBox
         status = False
-        uid = 3
-        if (n.strip() == '') \
-                or (s.strip() == '') \
-                or (pos.strip() == '') \
-                or (number.strip() == '') \
-                or (nat.strip() == ''):
-            message = "Необходимо заполнить каждое поле"
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setModal(True)
-            error_message.setWindowTitle("Пустое поле")
-            error_message.showMessage(message)
-            if len(nat) != 0 and (nat.strip() == ''):
-                self.ui.nationLine.clear()
-            if len(n) != 0 and (n.strip() == ''):
-                self.ui.nameLine.clear()
-            if len(s) != 0 and (s.strip() == ''):
-                self.ui.surnameLine.clear()
-        elif any(map(str.isdigit, n)):
-            message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setModal(True)
-            error_message.setWindowTitle("Ошибка ввода")
-            error_message.showMessage(message)
-            self.ui.nameLine.clear()
-        elif any(map(str.isdigit, s)):
-            message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setModal(True)
-            error_message.setWindowTitle("Ошибка ввода")
-            error_message.showMessage(message)
-            self.ui.surnameLine.clear()
-        elif any(map(str.isdigit, nat)):
-            message = "Недопустимый символ в поле страны - цифра. Проверьте правильность введенных данных."
-            error_message = QtWidgets.QErrorMessage(self)
-            error_message.setModal(True)
-            error_message.setWindowTitle("Ошибка ввода")
-            error_message.showMessage(message)
-            self.ui.nationLine.clear()
-
-        else:
-            if(check.isChecked() is False):
-                if (l.strip() == '') \
-                        or (p.strip() == '') \
-                        or (pp.strip() == ''):
-                    message = "Необходимо заполнить поля логина и пароля"
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Пустые поля")
-                    error_message.showMessage(message)
-                    if len(l) != 0 and (l.strip() == ''):
-                        self.ui.loginLine.clear()
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                elif " " in l:
-                    message = "Недопустимый символ в поле логина - пробел. Проверьте правильность введенных данных."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setWindowTitle("Ошибка ввода")
-                    error_message.setModal(True)
-                    error_message.showMessage(message)
-                    self.ui.loginLine.clear()
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                elif " " in p:
-                    message = "Недопустимый символ в поле пароля - пробел. Проверьте правильность введенных данных."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Ошибка ввода")
-                    error_message.showMessage(message)
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                elif any(map(str.isdigit, n)):
-                    message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Ошибка ввода")
-                    error_message.showMessage(message)
+        uid = 2
+        if (self.ui.myTeamCheckBox.isChecked()):
+            if (n.strip() == '') \
+                    or (s.strip() == '') \
+                    or (nat.strip() == '') \
+                    or (w.strip() == ''):
+                message = "Необходимо заполнить каждое поле"
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Пустое поле")
+                error_message.showMessage(message)
+                if len(nat) != 0 and (nat.strip() == ''):
+                    self.ui.nationLine.clear()
+                if len(n) != 0 and (n.strip() == ''):
                     self.ui.nameLine.clear()
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                elif any(map(str.isdigit, s)):
-                    message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Ошибка ввода")
-                    error_message.showMessage(message)
+                if len(s) != 0 and (s.strip() == ''):
                     self.ui.surnameLine.clear()
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                elif (p != pp):
-                    message = "Введенные пароли не совпадают. Проверьте правильность введенных данных."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Ошибка ввода")
-                    error_message.showMessage(message)
-                    self.ui.passwordLine.clear()
-                    self.ui.passwordConfirmLine.clear()
-                else:
-                    status, uid = self.db.addUser(l, p, 3)
+                if len(w) != 0 and (w.strip() == ''):
+                    self.ui.workLine.clear()
+            elif any(map(str.isdigit, n)):
+                message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.nameLine.clear()
+            elif any(map(str.isdigit, s)):
+                message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.surnameLine.clear()
+            elif any(map(str.isdigit, nat)):
+                message = "Недопустимый символ в поле страны - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.nationLine.clear()
+            elif any(map(str.isdigit, w)):
+                message = "Недопустимый символ в поле должности - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.workLine.clear()
 
-                    if (status is False):
-                        message = "Введенный логин занят. Повторите ввод."
+            else:
+                if (check.isChecked() is False):
+                    if (l.strip() == '') \
+                            or (p.strip() == '') \
+                            or (pp.strip() == ''):
+                        message = "Необходимо заполнить поля логина и пароля"
                         error_message = QtWidgets.QErrorMessage(self)
                         error_message.setModal(True)
+                        error_message.setWindowTitle("Пустые поля")
+                        error_message.showMessage(message)
+                        if len(l) != 0 and (l.strip() == ''):
+                            self.ui.loginLine.clear()
+                        self.ui.passwordLine.clear()
+                        self.ui.passwordConfirmLine.clear()
+                    elif " " in l:
+                        message = "Недопустимый символ в поле логина - пробел. Проверьте правильность введенных данных."
+                        error_message = QtWidgets.QErrorMessage(self)
                         error_message.setWindowTitle("Ошибка ввода")
+                        error_message.setModal(True)
                         error_message.showMessage(message)
                         self.ui.loginLine.clear()
                         self.ui.passwordLine.clear()
                         self.ui.passwordConfirmLine.clear()
-            if (check.isChecked() is True) or status is True:
-                status, fid = self.db.addPlayer(uid, n, s, nat, d, pos, number, h, w)
-                if (status is True):
-                    self.contract = contractWindow.contractWindow()
-                    self.contract.fid = fid
-                    self.db.cursor.execute("SELECT * from Контракты where ID_футболиста=" + str(fid))
-                    row = self.db.cursor.fetchone()
-                    exdate = row[2]
-                    sal = row[1]
-                    self.contract.ui.expireDate.setMinimumDate(
-                        QtCore.QDate(int(exdate[0:4]), int(exdate[5:7]), int(exdate[8:10])))
-                    self.contract.ui.salary.setValue(sal)
-                    self.contract.ui.backButton.hide()
-                    self.contract.show()
-                    self.close()
+                    elif " " in p:
+                        message = "Недопустимый символ в поле пароля - пробел. Проверьте правильность введенных данных."
+                        error_message = QtWidgets.QErrorMessage(self)
+                        error_message.setModal(True)
+                        error_message.setWindowTitle("Ошибка ввода")
+                        error_message.showMessage(message)
+                        self.ui.passwordLine.clear()
+                        self.ui.passwordConfirmLine.clear()
+                    elif any(map(str.isdigit, n)):
+                        message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
+                        error_message = QtWidgets.QErrorMessage(self)
+                        error_message.setModal(True)
+                        error_message.setWindowTitle("Ошибка ввода")
+                        error_message.showMessage(message)
+                        self.ui.nameLine.clear()
+                        self.ui.passwordLine.clear()
+                        self.ui.passwordConfirmLine.clear()
+                    elif any(map(str.isdigit, s)):
+                        message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
+                        error_message = QtWidgets.QErrorMessage(self)
+                        error_message.setModal(True)
+                        error_message.setWindowTitle("Ошибка ввода")
+                        error_message.showMessage(message)
+                        self.ui.surnameLine.clear()
+                        self.ui.passwordLine.clear()
+                        self.ui.passwordConfirmLine.clear()
+                    elif (p != pp):
+                        message = "Введенные пароли не совпадают. Проверьте правильность введенных данных."
+                        error_message = QtWidgets.QErrorMessage(self)
+                        error_message.setModal(True)
+                        error_message.setWindowTitle("Ошибка ввода")
+                        error_message.showMessage(message)
+                        self.ui.passwordLine.clear()
+                        self.ui.passwordConfirmLine.clear()
+                    else:
+                        status, uid = self.db.addUser(l, p, 2)
+                        if (status is False):
+                            message = "Введенный логин занят. Повторите ввод."
+                            error_message = QtWidgets.QErrorMessage(self)
+                            error_message.setModal(True)
+                            error_message.setWindowTitle("Ошибка ввода")
+                            error_message.showMessage(message)
+                            self.ui.loginLine.clear()
+                            self.ui.passwordLine.clear()
+                            self.ui.passwordConfirmLine.clear()
+
+                if (check.isChecked() is True) or status is True:
+                    if (w.rstrip() == 'Главный тренер'):
+                        message = 'Добавление нового главного тренера приведет к увольнению старого. Продолжить?'
+                        reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                               QtWidgets.QMessageBox.Yes,
+                                                               QtWidgets.QMessageBox.No)
+                        if reply == QtWidgets.QMessageBox.Yes:
+                            status = self.db.addCoach(uid, n, s, nat, d, w, t)
+                            if (status is True):
+                                message = 'Тренер успешно добавлен'
+                                reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                                       QtWidgets.QMessageBox.Ok)
+
+                                self.team = teamWindow.teamWindow()
+                                self.team.ui.tabWidget.setCurrentIndex(2)
+                                self.team.show()
+                                self.db.cnxn.close()
+                                self.close()
+
+                            else:
+                                message = "Неопределенная ошибка. Повторите ввод."
+                                error_message = QtWidgets.QErrorMessage(self)
+                                error_message.setModal(True)
+                                error_message.setWindowTitle("Ошибка БД")
+                                error_message.showMessage(message)
+                                self.db.cursor.execute("DELETE FROM Пользователи where Логин='" + l + "'")
+                        else:
+                            self.db.cursor.execute("DELETE FROM Пользователи where Логин='" + l + "'")
+                    else:
+                        status = self.db.addCoach(uid, n, s, nat, d, w, t)
+                        if (status is True):
+                            message = 'Тренер успешно добавлен'
+                            reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                                   QtWidgets.QMessageBox.Ok)
+
+                            self.team = teamWindow.teamWindow()
+                            self.team.ui.tabWidget.setCurrentIndex(2)
+                            self.team.show()
+                            self.db.cnxn.close()
+                            self.close()
+                        else:
+                            message = "Неопределенная ошибка. Повторите ввод."
+                            error_message = QtWidgets.QErrorMessage(self)
+                            error_message.setModal(True)
+                            error_message.setWindowTitle("Ошибка БД")
+                            error_message.showMessage(message)
+                            self.db.cursor.execute("DELETE FROM Пользователи where Логин='" + l + "'")
+
+        else:
+            w = "Главный тренер"
+            if self.ui.teamCombo.currentIndex() == 0:
+                t = None
+            if (n.strip() == '') \
+                    or (s.strip() == '') \
+                    or (nat.strip() == ''):
+                message = "Необходимо заполнить каждое поле"
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Пустое поле")
+                error_message.showMessage(message)
+                if len(nat) != 0 and (nat.strip() == ''):
+                    self.ui.nationLine.clear()
+                if len(n) != 0 and (n.strip() == ''):
+                    self.ui.nameLine.clear()
+                if len(s) != 0 and (s.strip() == ''):
+                    self.ui.surnameLine.clear()
+            elif any(map(str.isdigit, n)):
+                message = "Недопустимый символ в поле имени - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.nameLine.clear()
+            elif any(map(str.isdigit, s)):
+                message = "Недопустимый символ в поле фамилии - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.surnameLine.clear()
+            elif any(map(str.isdigit, nat)):
+                message = "Недопустимый символ в поле страны - цифра. Проверьте правильность введенных данных."
+                error_message = QtWidgets.QErrorMessage(self)
+                error_message.setModal(True)
+                error_message.setWindowTitle("Ошибка ввода")
+                error_message.showMessage(message)
+                self.ui.nationLine.clear()
+            else:
+                if (w.rstrip() == 'Главный тренер' and t is not None):
+                    message = 'Добавление нового главного тренера приведет к увольнению старого. Продолжить?'
+                    reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                           QtWidgets.QMessageBox.Yes,
+                                                           QtWidgets.QMessageBox.No)
+                    if reply == QtWidgets.QMessageBox.Yes:
+                        status = self.db.addCoach(uid, n, s, nat, d, w, t)
+                        if (status is True):
+                            message = 'Тренер успешно добавлен'
+                            reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                                   QtWidgets.QMessageBox.Ok)
+
+                            self.knowledges = knowledgesWindow.knowledgesWindow()
+                            self.knowledges.ui.tabWidget.setCurrentIndex(1)
+                            self.knowledges.show()
+                            self.db.cnxn.close()
+                            self.close()
+
+                        else:
+                            message = "Неопределенная ошибка. Повторите ввод."
+                            error_message = QtWidgets.QErrorMessage(self)
+                            error_message.setModal(True)
+                            error_message.setWindowTitle("Ошибка БД")
+                            error_message.showMessage(message)
                 else:
-                    message = "Неопределенная ошибка. Повторите ввод."
-                    error_message = QtWidgets.QErrorMessage(self)
-                    error_message.setModal(True)
-                    error_message.setWindowTitle("Ошибка БД")
-                    error_message.showMessage(message)
+                    status = self.db.addCoach(uid, n, s, nat, d, w, t)
+                    if (status is True):
+                        message = 'Тренер успешно добавлен'
+                        reply = QtWidgets.QMessageBox.question(self, 'Успех', message,
+                                                               QtWidgets.QMessageBox.Ok)
 
-
-
+                        self.knowledges = knowledgesWindow.knowledgesWindow()
+                        self.knowledges.ui.tabWidget.setCurrentIndex(1)
+                        self.knowledges.show()
+                        self.db.cnxn.close()
+                        self.close()
+                    else:
+                        message = "Неопределенная ошибка. Повторите ввод."
+                        error_message = QtWidgets.QErrorMessage(self)
+                        error_message.setModal(True)
+                        error_message.setWindowTitle("Ошибка БД")
+                        error_message.showMessage(message)
 

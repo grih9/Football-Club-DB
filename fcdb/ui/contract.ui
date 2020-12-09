@@ -185,7 +185,7 @@
       <string notr="true">color: rgb(220, 220, 220);</string>
      </property>
      <property name="text">
-      <string>ЗАРПЛАТА (млн €/год</string>
+      <string>ЗАРПЛАТА (млн €/год)</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>

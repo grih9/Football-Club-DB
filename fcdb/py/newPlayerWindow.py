@@ -163,7 +163,6 @@ class newPlayerWindow(QtWidgets.QMainWindow):
                     self.ui.passwordConfirmLine.clear()
                 else:
                     status, uid = self.db.addUser(l, p, 3)
-
                     if (status is False):
                         message = "Введенный логин занят. Повторите ввод."
                         error_message = QtWidgets.QErrorMessage(self)
@@ -173,6 +172,7 @@ class newPlayerWindow(QtWidgets.QMainWindow):
                         self.ui.loginLine.clear()
                         self.ui.passwordLine.clear()
                         self.ui.passwordConfirmLine.clear()
+
             if (check.isChecked() is True) or status is True:
                 status, fid = self.db.addPlayer(uid, n, s, nat, d, pos, number, h, w)
                 if (status is True):
@@ -194,6 +194,7 @@ class newPlayerWindow(QtWidgets.QMainWindow):
                     error_message.setModal(True)
                     error_message.setWindowTitle("Ошибка БД")
                     error_message.showMessage(message)
+                    self.db.cursor.execute("DELETE FROM Пользователи where Логин='" + l + "'")
 
 
 
