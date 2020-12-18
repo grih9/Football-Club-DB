@@ -1,4 +1,5 @@
 from PyQt5 import QtWidgets, QtCore
+from PyQt5.QtWidgets import QMessageBox
 
 import properties
 from cryptography.fernet import Fernet
@@ -8,6 +9,7 @@ import playerMenuWindow
 import coachMenuWindow
 from profile import Ui_MainWindow as profileMain
 import sql
+import changePasswordWindow
 
 
 class profilewindow(QtWidgets.QMainWindow):
@@ -17,10 +19,10 @@ class profilewindow(QtWidgets.QMainWindow):
         self.ui = profileMain()
         self.ui.setupUi(self)
         self.setWindowTitle("Профиль")
-        self.ui.editbutton.hide()
         self.ui.backButton.clicked.connect(self.backButton_clicked)
         self.ui.showPassword.pressed.connect(self.showPassword_pressed)
         self.ui.showPassword.released.connect(self.showPassword_released)
+        self.ui.editbutton.clicked.connect(self.editPassword_clikced)
         self.db = sql.Sql("football_club")
         self.db.cursor.execute("SELECT Логин FROM Пользователи where ID_пользователя =" + str(properties.current_userID))
         row = self.db.cursor.fetchone()
@@ -183,3 +185,8 @@ class profilewindow(QtWidgets.QMainWindow):
 
     def showPassword_released(self):
         self.ui.passwordLabel.setText("******")
+
+    def editPassword_clikced(self):
+        self.changePassword = changePasswordWindow.changePasswordWindow()
+        self.changePassword.show()
+        self.close()

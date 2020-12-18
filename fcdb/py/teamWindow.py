@@ -235,12 +235,17 @@ class teamWindow(QtWidgets.QMainWindow):
                 "SELECT Номер_футболиста, ФИО, Зарплата, Дата_окончания  FROM Контракты"
                 " join Футболисты on Футболисты.ID_футболиста=Контракты.ID_футболиста order by Номер_футболиста")
             row = self.db.cursor.fetchone()
+
+            self.ui.playersContractsCombo.clear()
+            self.ui.playersContractsCombo.addItem("")
             if (row is not None):
                 i = 0
                 while (row is not None):
                     self.ui.contractsTabel.setRowCount(self.ui.contractsTabel.rowCount() + 1)
                     item = QtWidgets.QTableWidgetItem()
                     self.ui.contractsTabel.setVerticalHeaderItem(i, item)
+                    m = str(row[0]) + ". " + row[1].rstrip()
+                    self.ui.playersContractsCombo.addItem(m)
                     for j in range(4):
                         if (j == 2):
                             self.ui.contractsTabel.setItem(i, j, QtWidgets.QTableWidgetItem(
